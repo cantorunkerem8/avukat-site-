@@ -76,15 +76,15 @@ export function Hero() {
                     >
                         {/* Removed text as requested */}
                         <svg
-                            viewBox="0 0 48 12"
+                            viewBox="0 0 52 24"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="stroke-current w-12 h-3 sm:w-16 sm:h-4"
+                            className="stroke-current w-12 h-auto sm:w-16"
                             style={{ display: 'block' }}
                         >
                             <path
-                                d="M2 1L24 11L46 1"
-                                strokeWidth="4.5"
+                                d="M4 6L26 18L48 6"
+                                strokeWidth="7"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                             />
