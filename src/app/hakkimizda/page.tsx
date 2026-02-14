@@ -89,15 +89,15 @@ export default function AboutPage() {
                         </h2>
                         <div className="prose prose-lg mx-auto text-muted-foreground">
                             <p>
-                                Bozoğlan Avukatlık Bürosu, 1995 yılında İstanbul'da kurulmuştur.
+                                Bozoğlan Avukatlık Bürosu, 2023 yılında İstanbul'da kurulmuştur.
                                 Kurulduğumuz günden bu yana müvekkillerimize en üst düzeyde
                                 hukuki hizmet sunmayı ilke edinmiş, bu doğrultuda sürekli
-                                gelişmeyi ve yenilenmeyi hedeflemişiz.
+                                gelişmeyi ve yenilenmeyi hedefliyoruz.
                             </p>
                             <p>
                                 Bugün, alanında uzman avukatlardan oluşan kadromuzla ceza
-                                hukuku, aile hukuku, ticaret hukuku, iş hukuku ve gayrimenkul
-                                hukuku başta olmak üzere birçok alanda hizmet vermekteyiz.
+                                hukuku, aile hukuku, ticaret hukuku, iş hukuku, gayrimenkul
+                                hukuku, yabancılar hukuku ve icra iflas hukuku başta olmak üzere birçok alanda hizmet vermekteyiz.
                             </p>
                             <p>
                                 Müvekkillerimizin haklarını korumak için titizlikle çalışıyor,

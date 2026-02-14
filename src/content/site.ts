@@ -5,7 +5,7 @@ export const siteContent: SiteContent = {
         name: 'Bozoğlan Avukatlık Bürosu',
         slogan: 'Hukukun Gücü, Tecrübenin Teminatıyla Geleceğinizi Güvence Altına Alıyoruz',
         description:
-            '1995 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
+            '2023 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
         address: 'Levent Mah. Büyükdere Cad. No:123, Şişli, İstanbul',
         phone: '+90 212 123 45 67',
         email: 'info@bozoglanavukatlik.com',
@@ -35,6 +35,11 @@ export const siteContent: SiteContent = {
                 { label: 'Aile Hukuku', href: '/hizmetler/aile-hukuku' },
                 { label: 'Ticaret Hukuku', href: '/hizmetler/ticaret-hukuku' },
                 { label: 'İş Hukuku', href: '/hizmetler/is-hukuku' },
+                { label: 'Yabancılar Hukuku', href: '/hizmetler/yabancilar-hukuku' },
+                {
+                    label: 'İcra ve İflas Hukuku',
+                    href: '/hizmetler/icra-ve-iflas-hukuku',
+                },
             ],
         },
         { label: 'Ekibimiz', href: '/ekibimiz' },
@@ -170,6 +175,31 @@ Mali haklarınızın korunması için etkin hukuki süreç yönetimi sunuyoruz.`
             relatedServices: ['3', '4'],
             relatedTeamMembers: ['1', '4'],
         },
+        {
+            id: '7',
+            title: 'Yabancılar Hukuku',
+            slug: 'yabancilar-hukuku',
+            shortDescription:
+                'Vatandaşlık, ikamet izni, çalışma izni ve sınır dışı süreçlerinde hukuki danışmanlık.',
+            longDescription: `Globalleşen, gelişen ve değişen dünya düzeninde Yabancılar ve Vatandaşlık Hukuku departmanı önemli bir departman olarak ön plana çıkmaktadır. Bu departmanımız hem Türkiye’ye gelen yabancılara hem de Türkiye’den yurtdışı gitmek isteyen kişilere kapsamlı danışmanlık hizmetleri sağlamaktadır.
+
+Ekibimiz; süreçlerinizi hassasiyetle yürütmek, her bir yabancı için kişiselleştirilmiş çözümler üretmek ve amaçlarınıza siz değerli müvekkillerimizi en hızlı ulaştırmak için sizlere doğru bir rehberlik ve hukuki hizmet sağlamaktadır.
+
+**Hizmet kapsamımız:**
+- Türk Vatandaşlığı, ikamet izni, çalışma izni başvurularının yapılması
+- Yabancıların tapu düzeltme işlemlerinin, vergi muafiyeti ile vergi teşvikleri ve yatırım süreçlerinin yönetimi işlemleri
+- Banka hesap açılış işlemlerinin baştan sona yürütülmesinde danışmanlık sağlanmaktadır.`,
+            icon: 'globe',
+            keywords: [
+                'yabancılar hukuku',
+                'vatandaşlık',
+                'oturma izni',
+                'deport',
+                'çalışma izni',
+            ],
+            relatedServices: ['5', '3'],
+            relatedTeamMembers: ['2', '4'],
+        },
     ],
 
     team: [
@@ -180,18 +210,18 @@ Mali haklarınızın korunması için etkin hukuki süreç yönetimi sunuyoruz.`
             title: 'Kurucu Ortak, Avukat',
             specialties: ['Ceza Hukuku', 'Ticaret Hukuku', 'İcra Hukuku'],
             shortBio:
-                '25 yıllık deneyimi ile ceza ve ticaret hukuku alanında uzmanlaşmış kurucu ortak.',
-            longBio: `Ahmet Yılmaz, 1995 yılında İstanbul Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mesleki kariyerine İstanbul Barosu'nda başlamış, 2005 yılında Bozoğlan Avukatlık Bürosu'nu kurmuştur.
+                '3 yıllık deneyimi ile ceza ve ticaret hukuku alanında uzmanlaşmış kurucu ortak.',
+            longBio: `Ahmet Yılmaz, 2022 yılında İstanbul Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mesleki kariyerine İstanbul Barosu'nda başlamış, 2023 yılında Bozoğlan Avukatlık Bürosu'nu kurmuştur.
 
-Ceza hukuku ve ticaret hukuku alanlarında uzmanlaşan Ahmet Yılmaz, çok sayıda karmaşık dada başarıyla müvekkillerini temsil etmiştir. Özellikle ekonomik suçlar ve ticari uyuşmazlıklar konularında geniş deneyime sahiptir.
+Ceza hukuku ve ticaret hukuku alanlarında uzmanlaşan Ahmet Yılmaz, çok sayıda karmaşık dada başarıyla müvekkillerini temsil etmiştir. Özellikle ekonomik suçlar ve ticari uyuşmazlıklar konularında deneyime sahiptir.
 
 İstanbul Barosu ve Türk Hukuk Kurumu üyesi olan Ahmet Yılmaz, düzenli olarak hukuk seminerleri ve konferanslara konuşmacı olarak katılmaktadır.`,
             education: [
-                'İstanbul Üniversitesi Hukuk Fakültesi (1995)',
-                'İstanbul Bilgi Üniversitesi - Ekonomik Suçlar Sertifikası (2002)',
+                'İstanbul Üniversitesi Hukuk Fakültesi (2022)',
+                'İstanbul Bilgi Üniversitesi - Ekonomik Suçlar Sertifikası (2023)',
             ],
             languages: ['Türkçe', 'İngilizce'],
-            barInfo: 'İstanbul Barosu - 1995',
+            barInfo: 'İstanbul Barosu - 2022',
             imagePlaceholder: {
                 initials: 'AY',
                 bgColor: 'bg-gradient-to-br from-amber-600 to-amber-800',
@@ -722,13 +752,198 @@ Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalı�
             question: 'E-ticaret sitesi için hukuki metinler nelerdir?',
             answer: 'Mesafeli Satış Sözleşmesi, Ön Bilgilendirme Formu, Üyelik Sözleşmesi, KVKK Aydınlatma Metni ve Çerez Politikası bulundurulması zorunludur.'
         },
+
+        // Yabancılar Hukuku
+        {
+            id: 'yabanci-1',
+            category: 'Yabancılar Hukuku',
+            question: 'Yatırım yoluyla Türk vatandaşlığı nasıl kazanılır?',
+            answer: 'En az 400.000 USD tutarında gayrimenkul satın alarak veya 500.000 USD tutarında sermaye yatırımı yaparak Türk vatandaşlığına başvurulabilir. Gayrimenkulün 3 yıl satılmama şerhi olmalıdır.'
+        },
+        {
+            id: 'yabanci-2',
+            category: 'Yabancılar Hukuku',
+            question: 'Turistik ikamet izni süresi ne kadardır?',
+            answer: 'Turistik amaçlı kısa dönem ikamet izinleri genellikle en fazla 1 yıl süreyle verilir. İdarenin takdirine göre bu süre daha kısa olabilir.'
+        },
+        {
+            id: 'yabanci-3',
+            category: 'Yabancılar Hukuku',
+            question: 'Sınır dışı (deport) kararı nasıl kaldırılır?',
+            answer: 'Sınır dışı kararına karşı, kararın tebliğinden itibaren 7 gün içinde İdare Mahkemesi\'nde iptal davası açılmalıdır. Dava açıldığında sınır dışı işlemi durur.'
+        },
+        {
+            id: 'yabanci-4',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancıların çalışma izni başvurusu nasıl yapılır?',
+            answer: 'Çalışma izni başvurusu, işveren tarafından e-Devlet üzerinden Çalışma ve Sosyal Güvenlik Bakanlığı sistemine yapılır. Yurt dışından başvurularda konsolosluk kaydı gerekir.'
+        },
+        {
+            id: 'yabanci-5',
+            category: 'Yabancılar Hukuku',
+            question: 'Evlilik yoluyla vatandaşlık şartları nelerdir?',
+            answer: 'Bir Türk vatandaşı ile en az 3 yıldır evli olan ve evliliği devam eden yabancılar başvurabilir. Aile birliği içinde yaşama ve evlilikle bağdaşmayacak faaliyette bulunmama şartı aranır.'
+        },
+        {
+            id: 'yabanci-6',
+            category: 'Yabancılar Hukuku',
+            question: 'Tahdit kodu (G-87, Ç-114 vb.) nasıl kaldırılır?',
+            answer: 'Tahdit kodları, yabancının Türkiye\'ye girişini engelleyen idari işlemlerdir. Kodun türüne göre İdare Mahkemesi\'nde iptal davası açılarak veya idari başvuru ile kaldırılabilir.'
+        },
+        {
+            id: 'yabanci-7',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancı öğrenciler çalışma izni alabilir mi?',
+            answer: 'Ön lisans ve lisans öğrencileri ilk yıldan sonra çalışma izni alabilir. Yüksek lisans ve doktora öğrencileri ise kısıtlama olmaksızın çalışma izni başvurusu yapabilir.'
+        },
+        {
+            id: 'yabanci-8',
+            category: 'Yabancılar Hukuku',
+            question: 'Mavi Kart nedir, kimler alabilir?',
+            answer: 'Doğumla Türk vatandaşı olup sonradan izinle vatandaşlıktan çıkanlara (ve altsoylarına) verilen, seçme-seçilme ve askerlik dışındaki haklardan yararlanmayı sağlayan karttır.'
+        },
+        {
+            id: 'yabanci-9',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancıların şirket kurması mümkün müdür?',
+            answer: 'Evet, yabancılar Türkiye\'de Türk vatandaşları ile aynı şartlarda Limited veya Anonim Şirket kurabilirler. Çalışma izni süreci şirket ortağı olup olmamasına göre değişir.'
+        },
+        {
+            id: 'yabanci-10',
+            category: 'Yabancılar Hukuku',
+            question: 'İkamet izni başvurum reddedildi, ne yapmalıyım?',
+            answer: 'Ret kararının tebliğinden itibaren 60 gün içinde İdare Mahkemesi\'nde iptal davası açabilirsiniz. Ayrıca ret gerekçesini düzelterek (varsa) yeniden başvuru yapabilirsiniz.'
+        },
+        {
+            id: 'yabanci-11',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancılar Türkiye\'de boşanabilir mi?',
+            answer: 'Evet, taraflardan biri veya her ikisi yabancı olsa bile Türk mahkemelerinde boşanma davası açılabilir. MÖHUK kurallarına göre uygulanacak hukuk belirlenir.'
+        },
+        {
+            id: 'yabanci-12',
+            category: 'Yabancılar Hukuku',
+            question: 'Tanıma ve Tenfiz davası nedir?',
+            answer: 'Yabancı mahkemelerden alınan kararların (örneğin boşanma) Türkiye\'de geçerli olabilmesi ve icra edilebilmesi için açılan davadır.'
+        },
+        {
+            id: 'yabanci-13',
+            category: 'Yabancılar Hukuku',
+            question: 'Uzun dönem ikamet izni şartları nelerdir?',
+            answer: 'Türkiye\'de kesintisiz en az 8 yıl ikamet izniyle kalmış olan, kendi geçimini sağlayan ve kamu düzeni açısından tehdit oluşturmayan yabancılar başvurabilir.'
+        },
+        {
+            id: 'yabanci-14',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancı plakalı araç Türkiye\'de ne kadar kalabilir?',
+            answer: 'Yurt dışında yerleşik yabancılar, getirdikleri araçları Türkiye\'de 730 gün (2 yıl) süreyle kullanabilirler. Bu sürenin sonunda aracın yurt dışına çıkarılması gerekir.'
+        },
+        {
+            id: 'yabanci-15',
+            category: 'Yabancılar Hukuku',
+            question: 'Yabancı sağlık sigortası zorunlu mudur?',
+            answer: 'Evet, ikamet izni başvurularında yabancının talep ettiği ikamet süresini kapsayan geçerli bir özel sağlık sigortasına sahip olması zorunludur.'
+        },
+
+        // İcra ve İflas Hukuku
+        {
+            id: 'icra-1',
+            category: 'İcra ve İflas Hukuku',
+            question: 'İlamsız icra takibi nedir?',
+            answer: 'Elinizde bir mahkeme kararı (ilam) olmadan, para ve teminat alacakları için İcra Dairesi\'ne başvurarak başlatılan takip türüdür. Borçlu 7 gün içinde itiraz etmezse takip kesinleşir.'
+        },
+        {
+            id: 'icra-2',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Borca itiraz süresi ne kadardır?',
+            answer: 'İlamsız icra takiplerinde ödeme emrinin tebliğinden itibaren 7 gün içinde İcra Dairesi\'ne itiraz edilmelidir. Kambiyo senetlerinde (çek, senet) bu süre 5 gündür.'
+        },
+        {
+            id: 'icra-3',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Maaş haczi oranı nedir?',
+            answer: 'Borçlunun maaş veya ücretinin en fazla 1/4\'ü (dörtte biri) haczedilebilir. Ancak nafaka alacaklarında bu oran uygulanmaz, nafakanın tamamı kesilir.'
+        },
+        {
+            id: 'icra-4',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Eve haciz gelir mi, eşyalarım alınır mı?',
+            answer: 'Yeni düzenlemeyle, borçlunun ve ailesinin yaşaması için "lüzumlu" olan ev eşyaları (buzdolabı, çamaşır makinesi, koltuk vb.) haczedilemez. Ancak aynı eşyadan birden fazla varsa veya antika/değerli eşya ise haczedilebilir.'
+        },
+        {
+            id: 'icra-5',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Menfi tespit davası nedir?',
+            answer: 'Borçlu olmadığını iddia eden kişinin, hakkında icra takibi yapılmadan önce veya takipten sonra borçlu olmadığının tespiti için açtığı davadır.'
+        },
+        {
+            id: 'icra-6',
+            category: 'İcra ve İflas Hukuku',
+            question: 'İhtiyati haciz nedir?',
+            answer: 'Alacaklının, alacağını garanti altına almak amacıyla, dava sonuçlanmadan veya icra takibi kesinleşmeden borçlunun mallarına geçici olarak el konulması kararıdır.'
+        },
+        {
+            id: 'icra-7',
+            category: 'İcra ve İflas Hukuku',
+            question: 'İflas erteleme kalktı mı?',
+            answer: 'Evet, iflasın ertelenmesi kurumu kaldırılarak yerine "Konkordato" sistemi revize edilmiştir. Borçlu şirketler artık konkordato talep etmektedir.'
+        },
+        {
+            id: 'icra-8',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Senet zamanaşımı süresi ne kadardır?',
+            answer: 'Bono (senet) için zamanaşımı süresi vade tarihinden itibaren 3 yıldır. Çeklerde ise ibraz süresinin bitiminden itibaren 3 yıldır.'
+        },
+        {
+            id: 'icra-9',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Emekli maaşına haciz konulabilir mi?',
+            answer: 'Kural olarak emekli maaşına (SGK) borçlunun muvafakati (izni) olmadan haciz konulamaz. Bunun tek istisnası nafaka borçlarıdır.'
+        },
+        {
+            id: 'icra-10',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Yediemin nedir?',
+            answer: 'Haczedilen malın, güvenilir bir kişiye (veya otoparka/ depoya) teslim edilmesidir. Malın sahibi de yediemin olarak tayin edilebilir (ev eşyaları vb.).'
+        },
+        {
+            id: 'icra-11',
+            category: 'İcra ve İflas Hukuku',
+            question: 'İcra inkar tazminatı nedir?',
+            answer: 'Borçlunun haksız yere itiraz etmesi durumunda, alacaklının açacağı itirazın iptali davasında borçlunun asıl alacağın %20\'sinden aşağı olmamak üzere ödemeye mahkum edildiği tazminattır.'
+        },
+        {
+            id: 'icra-12',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Taahhüdü ihlal cezası (Tazyik Hapsi) nedir?',
+            answer: 'Borçlunun icra dairesinde borcunu ödeyeceğine dair yazılı taahhütte bulunup, haklı bir neden olmaksızın ödememesi halinde alacaklının şikayetiyle 3 aya kadar hapis cezası verilmesidir.'
+        },
+        {
+            id: 'icra-13',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Aciz vesikası ne işe yarar?',
+            answer: 'Borçlunun haczedilecek malı bulunmadığını belgeleyen evraktır. Alacaklıya ileride borçlunun mal edinmesi halinde takip hakkı ve tasarrufun iptali davası açma hakkı verir.'
+        },
+        {
+            id: 'icra-14',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Tasarrufun iptali davası nedir?',
+            answer: 'Borçlunun, alacaklılarından mal kaçırmak amacıyla yaptığı (yakınlarına devir, ucuz satış vb.) işlemlerin iptali için açılan davadır. 5 yıl geriye dönük işlemler incelenebilir.'
+        },
+        {
+            id: 'icra-15',
+            category: 'İcra ve İflas Hukuku',
+            question: 'Kiracının eşyaları haczedilebilir mi?',
+            answer: 'Kira borcundan dolayı kiracının, kiralanan taşınmazdaki (ev veya işyeri) eşyaları üzerinde ev sahibinin "Hapis Hakkı" vardır ve haczedilebilir.'
+        },
+
     ],
 
     seo: {
         default: {
             title: 'Bozoğlan Avukatlık Bürosu',
             description:
-                'Ceza, aile, ticaret, iş ve gayrimenkul hukuku alanlarında profesyonel hukuki danışmanlık ve dava takip hizmetleri. 25 yıllık deneyim.',
+                'Ceza, aile, ticaret, iş ve gayrimenkul hukuku alanlarında profesyonel hukuki danışmanlık ve dava takip hizmetleri. 3 yıllık deneyim.',
             ogImage: '/images/logo.png',
             keywords: [
                 'avukat',
@@ -742,7 +957,7 @@ Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalı�
             '/hakkimizda': {
                 title: 'Hakkımızda | Bozoğlan Avukatlık Bürosu',
                 description:
-                    'Bozoğlan Avukatlık Bürosu olarak 1995 yılından bu yana müvekkillerimize profesyonel hukuki hizmetler sunuyoruz. Ekibimizi ve vizyonumuzu tanıyın.',
+                    'Bozoğlan Avukatlık Bürosu olarak 2023 yılından bu yana müvekkillerimize profesyonel hukuki hizmetler sunuyoruz. Ekibimizi ve vizyonumuzu tanıyın.',
             },
             '/hizmetler': {
                 title: 'Hizmetlerimiz | Bozoğlan Avukatlık Bürosu',

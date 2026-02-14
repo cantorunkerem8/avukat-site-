@@ -103,7 +103,7 @@ export function Hero() {
                             {/* Badge */}
                             <motion.div style={{ y: badgeY, opacity: contentOpacity }}>
                                 <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-6 border border-accent/20">
-                                    25+ Yıllık Deneyim
+                                    3+ Yıllık Deneyim
                                 </span>
                             </motion.div>
 
