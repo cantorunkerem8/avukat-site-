@@ -7,8 +7,8 @@ export function AutoScroll() {
     const pathname = usePathname();
 
     useEffect(() => {
-        // Disable auto-scroll for individual team member pages
-        if (pathname?.startsWith('/ekibimiz/')) {
+        // Disable auto-scroll for individual team member pages and homepage
+        if (pathname?.startsWith('/ekibimiz/') || pathname === '/') {
             return;
         }
 
