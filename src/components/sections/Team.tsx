@@ -150,23 +150,16 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                 {isMobile ? (
                     pathname === '/ekibimiz' ? (
                         // Vertical Stack for /ekibimiz page (No Carousel)
-                        <div className="flex flex-col gap-6 w-full max-w-md">
+                        // 2-Column Grid for /ekibimiz page (Compact View)
+                        <div className="grid grid-cols-2 gap-3 w-full max-w-md pb-8">
                             {displayTeam.map((member) => (
-                                <Link key={member.id} href={`/ekibimiz/${member.slug}`} className="block w-full">
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center">
-                                        <div className={`w-20 h-20 rounded-full ${member.imagePlaceholder.bgColor} flex items-center justify-center mb-4 ring-2 ring-white/20`}>
-                                            <span className="text-white font-serif font-bold text-xl">{member.imagePlaceholder.initials}</span>
+                                <Link key={member.id} href={`/ekibimiz/${member.slug}`} className="block w-full h-full">
+                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center shadow-md flex flex-col items-center h-full hover:bg-white/15 transition-all">
+                                        <div className={`w-16 h-16 rounded-full ${member.imagePlaceholder.bgColor} flex items-center justify-center mb-3 ring-2 ring-white/20`}>
+                                            <span className="text-white font-serif font-bold text-lg">{member.imagePlaceholder.initials}</span>
                                         </div>
-                                        <h3 className="text-lg font-serif font-medium text-white mb-1">{member.name}</h3>
-                                        <p className="text-accent text-sm mb-3">{member.title}</p>
-                                        <p className="text-white/60 text-sm mb-4 line-clamp-3">{member.shortBio}</p>
-                                        <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
-                                            {member.specialties.slice(0, 2).map((specialty) => (
-                                                <span key={specialty} className="text-xs px-2.5 py-1 rounded-full border border-white/20 text-white/70 bg-white/5">
-                                                    {specialty}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        <h3 className="text-base font-serif font-medium text-white mb-1 line-clamp-1">{member.name}</h3>
+                                        <p className="text-accent text-xs mb-0 line-clamp-1">{member.title}</p>
                                     </div>
                                 </Link>
                             ))}
