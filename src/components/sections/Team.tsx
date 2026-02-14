@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -33,6 +34,7 @@ function getGridPos(index: number, cols: number) {
 // ... (keep helper functions like getGridPos, but update slightly if needed, or just use as is)
 
 export function TeamGrid({ team, showAll = false }: TeamGridProps) {
+    const pathname = usePathname();
     const displayTeam = team || siteContent.team;
     // Duplicate for infinite scroll
     const visibleTeam = [...displayTeam, ...displayTeam, ...displayTeam];
@@ -146,30 +148,67 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                 </div>
 
                 {isMobile ? (
-                    // Mobile View (unchanged logic essentially, but map original visibleTeam or standard)
-                    <div className="flex flex-col gap-6 w-full max-w-md">
-                        {displayTeam.map((member) => (
-                            // ... existing mobile card ...
-                            <Link key={member.id} href={`/ekibimiz/${member.slug}`} className="block w-full">
-                                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center">
-                                    {/* ... content ... */}
-                                    <div className={`w-20 h-20 rounded-full ${member.imagePlaceholder.bgColor} flex items-center justify-center mb-4 ring-2 ring-white/20`}>
-                                        <span className="text-white font-serif font-bold text-xl">{member.imagePlaceholder.initials}</span>
+                    pathname === '/ekibimiz' ? (
+                        // Vertical Stack for /ekibimiz page (No Carousel)
+                        <div className="flex flex-col gap-6 w-full max-w-md">
+                            {displayTeam.map((member) => (
+                                <Link key={member.id} href={`/ekibimiz/${member.slug}`} className="block w-full">
+                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center">
+                                        <div className={`w-20 h-20 rounded-full ${member.imagePlaceholder.bgColor} flex items-center justify-center mb-4 ring-2 ring-white/20`}>
+                                            <span className="text-white font-serif font-bold text-xl">{member.imagePlaceholder.initials}</span>
+                                        </div>
+                                        <h3 className="text-lg font-serif font-medium text-white mb-1">{member.name}</h3>
+                                        <p className="text-accent text-sm mb-3">{member.title}</p>
+                                        <p className="text-white/60 text-sm mb-4 line-clamp-3">{member.shortBio}</p>
+                                        <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
+                                            {member.specialties.slice(0, 2).map((specialty) => (
+                                                <span key={specialty} className="text-xs px-2.5 py-1 rounded-full border border-white/20 text-white/70 bg-white/5">
+                                                    {specialty}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <h3 className="text-lg font-serif font-medium text-white mb-1">{member.name}</h3>
-                                    <p className="text-accent text-sm mb-3">{member.title}</p>
-                                    <p className="text-white/60 text-sm mb-4 line-clamp-3">{member.shortBio}</p>
-                                    <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
-                                        {member.specialties.slice(0, 2).map((specialty) => (
-                                            <span key={specialty} className="text-xs px-2.5 py-1 rounded-full border border-white/20 text-white/70 bg-white/5">
-                                                {specialty}
-                                            </span>
-                                        ))}
+                                </Link>
+                            ))}
+                        </div>
+                    ) : (
+                        <>
+                            {/* Mobile View - Horizontal Swipeable Carousel */}
+                            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-full pb-8 scrollbar-hide px-4 -mx-4">
+                                {displayTeam.map((member) => (
+                                    <div key={member.id} className="snap-center shrink-0 w-[85vw] max-w-sm">
+                                        <Link href={`/ekibimiz/${member.slug}`} className="block w-full h-full">
+                                            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center h-full">
+                                                <div
+                                                    className={`w-20 h-20 rounded-full ${member.imagePlaceholder.bgColor} flex items-center justify-center mb-4 ring-2 ring-white/20`}
+                                                >
+                                                    <span className="text-white font-serif font-bold text-xl">{member.imagePlaceholder.initials}</span>
+                                                </div>
+                                                <h3 className="text-lg font-serif font-medium text-white mb-1">{member.name}</h3>
+                                                <p className="text-accent text-sm mb-3">{member.title}</p>
+                                                <p className="text-white/60 text-sm mb-4 line-clamp-3">{member.shortBio}</p>
+                                                <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
+                                                    {member.specialties.slice(0, 2).map((specialty) => (
+                                                        <span key={specialty} className="text-xs px-2.5 py-1 rounded-full border border-white/20 text-white/70 bg-white/5">
+                                                            {specialty}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </Link>
                                     </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                                ))}
+                            </div>
+
+                            {/* Mobile 'See All' Button */}
+                            <div className="mt-6 flex justify-center">
+                                <Button href="/ekibimiz" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                                    Tüm Ekibi Gör
+                                    <ArrowRight className="ml-2 w-4 h-4" />
+                                </Button>
+                            </div>
+                        </>
+                    )
                 ) : (
                     <div
                         className="relative w-full flex items-center justify-center"
@@ -188,7 +227,7 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
 
                         <div
                             ref={scrollContainerRef}
-                            className="overflow-x-hidden py-20 px-4 -mx-4 no-scrollbar" // overflow-x-hidden to hide scrollbar, manual scroll via ref
+                            className="overflow-x-hidden py-20 px-4 -mx-4 scrollbar-hide" // overflow-x-hidden to hide scrollbar, manual scroll via ref
                             style={{
                                 width: '100%',
                                 display: 'flex',
