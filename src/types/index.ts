@@ -1,4 +1,18 @@
-import type { ReactNode, ChangeEvent } from 'react';
+import type { ReactNode, ChangeEvent, InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
+
+// ... other imports
+
+// ... other interfaces
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  error?: string;
+}
+
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label?: string;
+  error?: string;
+}
 
 // Site-wide types
 
@@ -148,31 +162,7 @@ export interface BadgeProps {
   className?: string;
 }
 
-export interface InputProps {
-  label?: string;
-  error?: string;
-  type?: 'text' | 'email' | 'tel' | 'password';
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  name?: string;
-  required?: boolean;
-  disabled?: boolean;
-  className?: string;
-}
 
-export interface TextareaProps {
-  label?: string;
-  error?: string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  name?: string;
-  required?: boolean;
-  disabled?: boolean;
-  rows?: number;
-  className?: string;
-}
 
 export interface AccordionItem {
   id: string;
