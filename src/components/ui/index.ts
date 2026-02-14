@@ -4,6 +4,9 @@ export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 export { Badge } from './Badge';
 export { Input } from './Input';
 export { Textarea } from './Textarea';
+export * from './AboutBackground';
+export * from './AutoScroll';
+export * from './CopyButton';
 export { Accordion } from './Accordion';
 export { Skeleton } from './Skeleton';
 export * from './CookieConsent';

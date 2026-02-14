@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout';
-import { Badge, Card, CardContent, Button } from '@/components/ui';
+import { Badge, Card, CardContent, Button, CopyButton } from '@/components/ui';
 import { CTA } from '@/components/sections';
 import { siteContent } from '@/content/site';
-import { ArrowRight, GraduationCap, Languages, Award } from 'lucide-react';
+import { ArrowRight, GraduationCap, Languages, Award, Phone } from 'lucide-react';
 
 interface TeamMemberPageProps {
   params: Promise<{ slug: string }>;
@@ -149,6 +149,26 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                     <p className="text-sm text-muted-foreground">
                       {member.barInfo}
                     </p>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Contact Info */}
+              {member.phone && (
+                <Card>
+                  <CardContent>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Phone className="w-5 h-5 text-accent" />
+                      <h3 className="font-serif font-medium text-foreground">
+                        İletişim
+                      </h3>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                        {member.phone}
+                      </a>
+                      <CopyButton textToCopy={member.phone} />
+                    </div>
                   </CardContent>
                 </Card>
               )}

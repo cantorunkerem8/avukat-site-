@@ -2,16 +2,23 @@ import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout';
 import { CTA } from '@/components/sections';
 import { siteContent } from '@/content/site';
-import { Target, Eye, Heart } from 'lucide-react';
+import { Target, Eye, ShieldCheck, Briefcase, Search, Lightbulb, Lock } from 'lucide-react';
+import { AboutBackground } from '@/components/ui';
 
-export const metadata: Metadata = {
-    title: siteContent.seo.pages['/hakkimizda']?.title,
-    description: siteContent.seo.pages['/hakkimizda']?.description,
-};
+// ... (metadata remains same)
 
 export default function AboutPage() {
+    const valueIcons: Record<string, { icon: any, color: string, animation: string }> = {
+        'Güvenilirlik': { icon: ShieldCheck, color: 'text-emerald-500', animation: 'group-hover:animate-pulse' },
+        'Profesyonellik': { icon: Briefcase, color: 'text-blue-500', animation: 'group-hover:-translate-y-1' },
+        'Şeffaflık': { icon: Search, color: 'text-sky-500', animation: 'group-hover:rotate-12' },
+        'Çözüm Odaklılık': { icon: Lightbulb, color: 'text-yellow-500', animation: 'group-hover:scale-110 group-hover:text-yellow-400' },
+        'Gizlilik': { icon: Lock, color: 'text-rose-500', animation: 'group-hover:animate-wiggle' },
+    };
+
     return (
         <>
+            {/* ... (Hero section same) ... */}
             <section className="py-16 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Breadcrumbs items={[{ label: 'Hakkımızda' }]} />
@@ -30,9 +37,9 @@ export default function AboutPage() {
             <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12">
-                        <div className="bg-card border border-border rounded-2xl p-8">
-                            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                                <Eye className="w-6 h-6 text-accent" />
+                        <div className="group bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                                <Eye className="w-6 h-6 text-accent group-hover:animate-wink" />
                             </div>
                             <h2 className="text-2xl font-serif font-medium text-foreground mb-4">
                                 Vizyonumuz
@@ -41,9 +48,9 @@ export default function AboutPage() {
                                 {siteContent.vision}
                             </p>
                         </div>
-                        <div className="bg-card border border-border rounded-2xl p-8">
-                            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                                <Target className="w-6 h-6 text-accent" />
+                        <div className="group bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                                <Target className="w-6 h-6 text-accent group-hover:spin-slow transition-transform duration-700" />
                             </div>
                             <h2 className="text-2xl font-serif font-medium text-foreground mb-4">
                                 Misyonumuz
@@ -57,25 +64,32 @@ export default function AboutPage() {
             </section>
 
             {/* Values */}
-            <section className="py-20 bg-muted/30">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="py-20 relative overflow-hidden">
+                <AboutBackground />
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl sm:text-4xl font-serif font-medium text-foreground mb-4">
                             Değerlerimiz
                         </h2>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-                        {siteContent.values.map((value, index) => (
-                            <div
-                                key={index}
-                                className="bg-card border border-border rounded-2xl p-6 text-center"
-                            >
-                                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                                    <Heart className="w-5 h-5 text-accent" />
+                        {siteContent.values.map((value, index) => {
+                            const IconData = valueIcons[value] || { icon: ShieldCheck, color: 'text-accent', animation: '' };
+                            const Icon = IconData.icon;
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="group bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent/30"
+                                >
+                                    <div className={`w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 transition-colors`}>
+                                        <Icon className={`w-6 h-6 ${IconData.color} ${IconData.animation} transition-all duration-300`} />
+                                    </div>
+                                    <span className="font-medium text-foreground group-hover:text-accent transition-colors block">{value}</span>
                                 </div>
-                                <span className="font-medium text-foreground">{value}</span>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>

@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 import { Navbar, Footer } from '@/components/layout';
 import { CookieConsent } from '@/components/ui/CookieConsent';
 import { siteContent } from '@/content/site';
+import { AutoScroll } from '@/components/ui/AutoScroll';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -57,6 +58,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
+
 export default function RootLayout({
   children,
 }: {
@@ -65,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <AutoScroll />
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
         <Footer />

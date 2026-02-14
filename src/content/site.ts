@@ -222,6 +222,7 @@ Ceza hukuku ve ticaret hukuku alanlarında uzmanlaşan Ahmet Yılmaz, çok sayı
             ],
             languages: ['Türkçe', 'İngilizce'],
             barInfo: 'İstanbul Barosu - 2022',
+            phone: '+90 532 123 45 67',
             imagePlaceholder: {
                 initials: 'AY',
                 bgColor: 'bg-gradient-to-br from-amber-600 to-amber-800',
@@ -246,6 +247,7 @@ Müvekkillerine çözüm odaklı yaklaşımı ile tanınan Elif Kaya, arabulucul
             ],
             languages: ['Türkçe', 'İngilizce', 'Fransızca'],
             barInfo: 'İstanbul Barosu - 2005',
+            phone: '+90 532 123 45 67',
             imagePlaceholder: {
                 initials: 'EK',
                 bgColor: 'bg-gradient-to-br from-rose-500 to-rose-700',
@@ -267,6 +269,7 @@ Ayrıca aile hukuku ve tazminat davaları alanında da aktif olarak çalışmakt
             education: ['Marmara Üniversitesi Hukuk Fakültesi (2010)'],
             languages: ['Türkçe', 'İngilizce'],
             barInfo: 'İstanbul Barosu - 2010',
+            phone: '+90 532 123 45 67',
             imagePlaceholder: {
                 initials: 'MD',
                 bgColor: 'bg-gradient-to-br from-emerald-500 to-emerald-700',
@@ -288,6 +291,7 @@ Ticaret hukuku ve sözleşmeler alanında uzmanlaşan Zeynep Arslan, şirket kur
             education: ['Koç Üniversitesi Hukuk Fakültesi (2015)'],
             languages: ['Türkçe', 'İngilizce'],
             barInfo: 'İstanbul Barosu - 2015',
+            phone: '+90 532 123 45 67',
             imagePlaceholder: {
                 initials: 'ZA',
                 bgColor: 'bg-gradient-to-br from-violet-500 to-violet-700',
@@ -309,6 +313,7 @@ Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalı�
             education: ['İstanbul Üniversitesi Hukuk Fakültesi (2018)'],
             languages: ['Türkçe', 'İngilizce'],
             barInfo: 'İstanbul Barosu - 2018',
+            phone: '+90 532 123 45 67',
             imagePlaceholder: {
                 initials: 'CÖ',
                 bgColor: 'bg-gradient-to-br from-sky-500 to-sky-700',

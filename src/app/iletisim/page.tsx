@@ -27,13 +27,23 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            <section className="py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="py-16 relative overflow-hidden">
+                {/* Arka plan görseli */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: "url('/images/iletişim.png')" }}
+                />
+                <div className="absolute inset-0 bg-black/80" />
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-3 gap-12">
                         {/* Contact Form */}
                         <div className="lg:col-span-2">
-                            <Card>
-                                <CardContent className="p-8">
+                            <Card className="relative overflow-hidden group">
+                                <div className="absolute -bottom-16 -right-16 opacity-[0.03] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105">
+                                    <Mail className="w-96 h-96 -rotate-12 text-foreground" strokeWidth={0.5} />
+                                </div>
+                                <CardContent className="p-8 relative z-10">
                                     <h2 className="text-2xl font-serif font-medium text-foreground mb-6">
                                         Mesaj Gönder
                                     </h2>
@@ -111,20 +121,22 @@ export default function ContactPage() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Map relocated here */}
+                                    <div className="mt-3 pt-3 border-t border-border">
+                                        <h3 className="text-lg font-serif font-medium text-foreground mb-2">
+                                            Konum
+                                        </h3>
+                                        <LocationMap
+                                            mapEmbedUrl={siteContent.office.mapEmbedUrl}
+                                            className="h-32"
+                                            compact={true}
+                                        />
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Map */}
-            <section className="py-16 bg-muted/30">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl font-serif font-medium text-foreground mb-6">
-                        Konum
-                    </h2>
-                    <LocationMap mapEmbedUrl={siteContent.office.mapEmbedUrl} />
                 </div>
             </section>
         </>

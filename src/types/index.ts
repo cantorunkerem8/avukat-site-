@@ -46,6 +46,7 @@ export interface TeamMember {
   education: string[];
   languages: string[];
   barInfo?: string;
+  phone?: string;
   imagePlaceholder: {
     initials: string;
     bgColor: string;

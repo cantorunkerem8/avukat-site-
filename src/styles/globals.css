@@ -148,4 +148,47 @@
   .animation-delay-500 {
     animation-delay: 500ms;
   }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.1); }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1s infinite;
+  }
+
+  @keyframes wink {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+  }
+
+  .animate-wink {
+    animation: wink 0.5s ease-in-out;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .animate-float {
+    animation: float-y 2s ease-in-out infinite;
+  }
+
+  .spin-slow {
+    animation: spin 3s linear infinite;
+  }
 }
