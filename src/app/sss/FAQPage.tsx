@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { Search, ChevronDown, HelpCircle, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Accordion, Button } from '@/components/ui';
 import { FAQBackground } from '@/components/ui/FAQBackground';
 import { siteContent } from '@/content/site';
@@ -12,6 +12,7 @@ export function FAQPage() {
     const [activeCategory, setActiveCategory] = useState<string>('Tümü');
     const [searchQuery, setSearchQuery] = useState('');
     const [visibleCount, setVisibleCount] = useState(10);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     // Reset visible count when filters change
     useEffect(() => {
@@ -51,6 +52,18 @@ export function FAQPage() {
         title: faq.question,
         content: faq.answer,
     }));
+
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+        }
+    };
 
     return (
         <div className="relative min-h-screen">
@@ -97,21 +110,46 @@ export function FAQPage() {
                 <div className="max-w-5xl mx-auto">
 
                     {/* Categories Scrollable Bar */}
-                    <div className="flex overflow-x-auto pb-4 mb-8 gap-2 no-scrollbar justify-start sm:justify-center">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setActiveCategory(cat)}
-                                className={cn(
-                                    "px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300",
-                                    activeCategory === cat
-                                        ? "bg-primary text-primary-foreground shadow-md scale-105"
-                                        : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
-                                )}
-                            >
-                                {cat}
-                            </button>
-                        ))}
+                    <div className="relative flex items-center gap-2 mb-8 select-none">
+                        {/* Left Arrow */}
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="shrink-0 rounded-full h-10 w-10 p-0 border border-border/50 bg-background/50 backdrop-blur-sm hidden sm:flex"
+                            onClick={scrollLeft}
+                        >
+                            <ChevronLeft className="h-5 w-5" />
+                        </Button>
+
+                        <div
+                            ref={scrollContainerRef}
+                            className="flex overflow-x-auto gap-2 scrollbar-hide scroll-smooth px-1 py-2 flex-grow"
+                        >
+                            {categories.map((cat) => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={cn(
+                                        "px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 border border-transparent",
+                                        activeCategory === cat
+                                            ? "bg-primary text-primary-foreground shadow-md scale-105"
+                                            : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground border-border/50 hover:border-border"
+                                    )}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Right Arrow */}
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="shrink-0 rounded-full h-10 w-10 p-0 border border-border/50 bg-background/50 backdrop-blur-sm hidden sm:flex"
+                            onClick={scrollRight}
+                        >
+                            <ChevronRight className="h-5 w-5" />
+                        </Button>
                     </div>
 
                     {/* Results */}
@@ -125,9 +163,6 @@ export function FAQPage() {
                         >
                             {accordionItems.length > 0 ? (
                                 <div className="grid gap-6">
-                                    {/* If "Tümü" is selected, we might want to group them, but the user asked for filtering. 
-                                Let's just list them nicely with badges if "Tümü" is active */}
-
                                     {/* Custom Grid or List Layout */}
                                     <div className="bg-card/50 backdrop-blur-sm rounded-3xl border border-border/50 p-4 sm:p-6 md:p-8 shadow-sm">
                                         <Accordion items={accordionItems.slice(0, visibleCount)} />
