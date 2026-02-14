@@ -1,7 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import '@/styles/globals.css';
 import { Navbar, Footer } from '@/components/layout';
+import { CookieConsent } from '@/components/ui/CookieConsent';
 import { siteContent } from '@/content/site';
 
 const inter = Inter({
@@ -48,11 +49,12 @@ export const metadata: Metadata = {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -66,6 +68,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

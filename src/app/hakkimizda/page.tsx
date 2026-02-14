@@ -37,7 +37,7 @@ export default function AboutPage() {
                             <h2 className="text-2xl font-serif font-medium text-foreground mb-4">
                                 Vizyonumuz
                             </h2>
-                            <p className="text-muted-foreground">
+                            <p className="text-muted-foreground whitespace-pre-line">
                                 {siteContent.vision}
                             </p>
                         </div>
@@ -48,7 +48,7 @@ export default function AboutPage() {
                             <h2 className="text-2xl font-serif font-medium text-foreground mb-4">
                                 Misyonumuz
                             </h2>
-                            <p className="text-muted-foreground">
+                            <p className="text-muted-foreground whitespace-pre-line">
                                 {siteContent.mission}
                             </p>
                         </div>

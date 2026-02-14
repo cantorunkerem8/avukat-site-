@@ -16,10 +16,10 @@ export function CTA() {
                     className="text-center"
                 >
                     <h2 className="text-3xl sm:text-4xl font-serif font-medium text-background mb-4">
-                        Hukuki Destek mi Gerekiyor?
+                        Hukuki Haklarınız İçin Geç Kalmayın
                     </h2>
                     <p className="text-background/70 max-w-2xl mx-auto mb-8">
-                        Ücretsiz ön görüşme için bizimle iletişime geçin. Size en uygun çözümü birlikte belirleyelim.
+                        Hukuki süreçler zaman ve strateji gerektirir. Hak kaybına uğramamak ve en doğru yol haritasını belirlemek için uzman kadromuzla iletişime geçin. İlk adımı bugün atın.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Button href="/iletisim" size="lg" variant="primary">

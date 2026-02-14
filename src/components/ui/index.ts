@@ -5,3 +5,6 @@ export { Badge } from './Badge';
 export { Input } from './Input';
 export { Textarea } from './Textarea';
 export { Accordion } from './Accordion';
+export { Skeleton } from './Skeleton';
+export * from './CookieConsent';
+export * from './LocationMap';

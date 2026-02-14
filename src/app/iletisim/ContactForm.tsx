@@ -57,8 +57,33 @@ export function ContactForm() {
     );
   }
 
+  const handlePaste = async (e: React.ClipboardEvent) => {
+    // Prevent default paste to force using the Clipboard API
+    e.preventDefault();
+
+    try {
+      // This explicitly requests permission to read the clipboard
+      const text = await navigator.clipboard.readText();
+
+      // Manually insert text into the focused input
+      const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+      if (target) {
+        // Use setRangeText to preserve cursor position behavior mostly
+        // Use setRangeText to preserve cursor position behavior mostly
+        target.setRangeText(text);
+        // Dispatch input event to ensure React Hook Form captures the change
+        target.dispatchEvent(new Event('input', { bubbles: true }));
+        console.log('Paste successful, permission granted');
+      }
+    } catch (err) {
+      console.error('Paste permission denied or failed:', err);
+      // Optional: Show a toast or alert saying "Paste permission is required"
+      alert('Yapıştırma işlemi için panoya erişim izni vermelisiniz.');
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} onPaste={handlePaste} className="space-y-6">
       <div className="grid md:grid-cols-2 gap-6">
         <Input
           label="Ad Soyad"

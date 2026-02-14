@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout';
-import { Card, CardContent } from '@/components/ui';
+import { Card, CardContent, LocationMap } from '@/components/ui';
 import { siteContent } from '@/content/site';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { ContactForm } from './ContactForm';
@@ -124,24 +124,7 @@ export default function ContactPage() {
                     <h2 className="text-2xl font-serif font-medium text-foreground mb-6">
                         Konum
                     </h2>
-                    <div className="rounded-2xl overflow-hidden border border-border h-[400px]">
-                        {siteContent.office.mapEmbedUrl ? (
-                            <iframe
-                                src={siteContent.office.mapEmbedUrl}
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Ofis Konumu"
-                            />
-                        ) : (
-                            <div className="w-full h-full bg-muted flex items-center justify-center">
-                                <p className="text-muted-foreground">Harita yüklenemedi</p>
-                            </div>
-                        )}
-                    </div>
+                    <LocationMap mapEmbedUrl={siteContent.office.mapEmbedUrl} />
                 </div>
             </section>
         </>

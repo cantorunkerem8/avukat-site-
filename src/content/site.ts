@@ -3,9 +3,9 @@ import type { SiteContent } from '@/types';
 export const siteContent: SiteContent = {
     office: {
         name: 'Bozoğlan Avukatlık Bürosu',
-        slogan: 'Güvenilir çözümler, profesyonel hizmet',
+        slogan: 'Hukukun Gücü, Tecrübenin Teminatıyla Geleceğinizi Güvence Altına Alıyoruz',
         description:
-            '1995 yılından bu yana müvekkillerimize hukuki danışmanlık ve dava takip hizmetleri sunmaktayız. Deneyimli kadromuz ve uzmanlık alanlarımızla yanınızdayız.',
+            '1995 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
         address: 'Levent Mah. Büyükdere Cad. No:123, Şişli, İstanbul',
         phone: '+90 212 123 45 67',
         email: 'info@bozoglanavukatlik.com',
@@ -767,11 +767,17 @@ Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalı�
         },
     },
 
-    vision:
-        'Türkiye\'nin en güvenilir ve tercih edilen hukuk bürolarından biri olmak, müvekkillerimize en üst düzeyde hukuki hizmet sunmak.',
+    vision: `Hukuku yalnızca mevcut sorunları çözen bir mekanizma değil, geleceği öngören stratejik bir disiplin olarak konumlandırıyoruz.
 
-    mission:
-        'Müvekkillerimizin haklarını korumak, hukuki süreçlerinde yanlarında olmak ve çözüm odaklı yaklaşımımızla en iyi sonuçları elde etmelerini sağlamak.',
+Vizyonumuz; müvekkillerimizin haklarını korurken aynı zamanda onları hukuki risklere karşı proaktif biçimde hazırlayan, öncü ve güvenilir bir hukuk markası olmaktır.
+
+Sadece dava süreçlerinde değil, karar alma aşamalarında da yol gösteren bir danışmanlık yaklaşımı benimsiyoruz. Ulusal ve uluslararası ölçekte saygınlığı, etik duruşu ve sürdürülebilir başarılarıyla örnek gösterilen bir hukuk bürosu olmayı hedefliyoruz.`,
+
+    mission: `Her dosyayı titizlikle analiz ederek, hukuki süreci stratejik bir bakış açısıyla yönetiyoruz.
+
+Şeffaf iletişim, güçlü mevzuat bilgisi ve disiplinli çalışma prensipleriyle müvekkillerimize güven veren bir temsil sunuyoruz. Doğru ve kalıcı sonuçlar üretmeyi esas alıyoruz.
+
+Bizim için başarı; yalnızca dava kazanmak değil, adalet duygusunu güçlendiren çözümler üretmektir.`,
 
     values: [
         'Güvenilirlik',

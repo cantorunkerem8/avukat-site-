@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
-import { Accordion } from '@/components/ui';
+import { Accordion, Button } from '@/components/ui';
 import { FAQBackground } from '@/components/ui/FAQBackground';
 import { siteContent } from '@/content/site';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,12 @@ import { cn } from '@/lib/utils';
 export function FAQPage() {
     const [activeCategory, setActiveCategory] = useState<string>('Tümü');
     const [searchQuery, setSearchQuery] = useState('');
+    const [visibleCount, setVisibleCount] = useState(10);
+
+    // Reset visible count when filters change
+    useEffect(() => {
+        setVisibleCount(10);
+    }, [activeCategory, searchQuery]);
 
     // Extract Categories
     const categories = useMemo(() => {
@@ -124,7 +130,23 @@ export function FAQPage() {
 
                                     {/* Custom Grid or List Layout */}
                                     <div className="bg-card/50 backdrop-blur-sm rounded-3xl border border-border/50 p-4 sm:p-6 md:p-8 shadow-sm">
-                                        <Accordion items={accordionItems} />
+                                        <Accordion items={accordionItems.slice(0, visibleCount)} />
+
+                                        {accordionItems.length > visibleCount && (
+                                            <div className="mt-8 text-center pt-4 border-t border-border/50">
+                                                <Button
+                                                    variant="outline"
+                                                    onClick={() => setVisibleCount(prev => prev + 10)}
+                                                    className="min-w-[200px]"
+                                                >
+                                                    Daha Fazla Göster
+                                                    <ChevronDown className="ml-2 w-4 h-4" />
+                                                </Button>
+                                                <p className="text-xs text-muted-foreground mt-2">
+                                                    Görüntülenen: {Math.min(visibleCount, accordionItems.length)} / {accordionItems.length}
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ) : (

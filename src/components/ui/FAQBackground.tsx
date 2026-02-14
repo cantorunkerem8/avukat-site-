@@ -32,7 +32,7 @@ export function FAQBackground() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/30 rounded-full mix-blend-multiply filter blur-[80px] opacity-40"
+                className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/30 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 [will-change:transform,opacity]"
             />
 
             {/* 2. Accent/Gold Blob (Top Right) */}
@@ -47,7 +47,7 @@ export function FAQBackground() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-amber-500/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-30"
+                className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-amber-500/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-30 [will-change:transform,opacity]"
             />
 
             {/* 3. Secondary/Purple Blob (Bottom Left) */}
@@ -62,7 +62,7 @@ export function FAQBackground() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                className="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"
+                className="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 [will-change:transform,opacity]"
             />
 
             {/* 4. Center Highlight Blob (Floating) */}
@@ -76,7 +76,7 @@ export function FAQBackground() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                className="absolute top-[40%] left-[40%] w-[30vw] h-[30vw] bg-rose-400/20 rounded-full mix-blend-multiply filter blur-[60px] opacity-20"
+                className="absolute top-[40%] left-[40%] w-[30vw] h-[30vw] bg-rose-400/20 rounded-full mix-blend-multiply filter blur-[60px] opacity-20 [will-change:transform,opacity]"
             />
 
             {/* Overlay Mesh Grid Texture for "3D" feel */}
