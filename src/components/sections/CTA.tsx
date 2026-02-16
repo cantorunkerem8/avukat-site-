@@ -33,15 +33,17 @@ export function CTA() {
                             Randevu Al
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
-                        <Button
-                            href={`tel:${siteContent.office.phone}`}
-                            size="lg"
-                            variant="outline"
-                            className="border-background/30 text-background hover:bg-background hover:text-foreground"
-                        >
-                            <Phone className="mr-2 w-5 h-5" />
-                            Hemen Arayın
-                        </Button>
+                        {siteContent.office.phone && (
+                            <Button
+                                href={`tel:${siteContent.office.phone}`}
+                                size="lg"
+                                variant="outline"
+                                className="border-background/30 text-background hover:bg-background hover:text-foreground"
+                            >
+                                <Phone className="mr-2 w-5 h-5" />
+                                Hemen Arayın
+                            </Button>
+                        )}
                     </div>
                 </motion.div>
             </div>

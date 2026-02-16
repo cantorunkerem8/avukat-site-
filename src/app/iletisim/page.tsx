@@ -69,18 +69,20 @@ export default function ContactPage() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-start gap-3">
-                                            <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                                            <div>
-                                                <p className="font-medium text-foreground">Telefon</p>
-                                                <a
-                                                    href={`tel:${siteContent.office.phone}`}
-                                                    className="text-sm text-muted-foreground hover:text-accent"
-                                                >
-                                                    {siteContent.office.phone}
-                                                </a>
+                                        {siteContent.office.phone && (
+                                            <div className="flex items-start gap-3">
+                                                <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                                                <div>
+                                                    <p className="font-medium text-foreground">Telefon</p>
+                                                    <a
+                                                        href={`tel:${siteContent.office.phone}`}
+                                                        className="text-sm text-muted-foreground hover:text-accent"
+                                                    >
+                                                        {siteContent.office.phone}
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
                                         <div className="flex items-start gap-3">
                                             <Mail className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                                             <div>

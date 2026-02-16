@@ -93,12 +93,14 @@ export function Footer() {
                                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                                 <span>{siteContent.office.address}</span>
                             </li>
-                            <li className="flex items-center gap-3 text-sm text-background/70">
-                                <Phone className="w-5 h-5 text-accent shrink-0" />
-                                <a href={`tel:${siteContent.office.phone}`} className="hover:text-accent transition-colors">
-                                    {siteContent.office.phone}
-                                </a>
-                            </li>
+                            {siteContent.office.phone && (
+                                <li className="flex items-center gap-3 text-sm text-background/70">
+                                    <Phone className="w-5 h-5 text-accent shrink-0" />
+                                    <a href={`tel:${siteContent.office.phone}`} className="hover:text-accent transition-colors">
+                                        {siteContent.office.phone}
+                                    </a>
+                                </li>
+                            )}
                             <li className="flex items-center gap-3 text-sm text-background/70">
                                 <Mail className="w-5 h-5 text-accent shrink-0" />
                                 <a href={`mailto:${siteContent.office.email}`} className="hover:text-accent transition-colors">

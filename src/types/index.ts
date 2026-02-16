@@ -21,7 +21,7 @@ export interface OfficeInfo {
   slogan: string;
   description: string;
   address: string;
-  phone: string;
+  phone?: string;
   email: string;
   workingHours: {
     weekdays: string;

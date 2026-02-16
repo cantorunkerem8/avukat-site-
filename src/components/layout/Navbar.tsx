@@ -132,8 +132,12 @@ export function Navbar() {
               "hidden md:flex items-center gap-2 text-sm transition-colors duration-500",
               isOverVideo && pathname === '/' ? 'text-white/80' : 'text-muted-foreground'
             )}>
-              <Phone className="w-4 h-4" />
-              <span>{siteContent.office.phone}</span>
+              {siteContent.office.phone && (
+                <>
+                  <Phone className="w-4 h-4" />
+                  <span>{siteContent.office.phone}</span>
+                </>
+              )}
             </div>
             <Button href="/iletisim" size="sm" className="hidden sm:inline-flex">
               Randevu Al
