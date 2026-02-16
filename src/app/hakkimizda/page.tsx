@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Breadcrumbs } from '@/components/layout';
 import { CTA } from '@/components/sections';
 import { siteContent } from '@/content/site';
@@ -119,6 +120,41 @@ export default function AboutPage() {
                                 ilkelerinden ödün vermiyoruz.
                             </p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Office Gallery */}
+            <section className="py-20 bg-muted/30">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl sm:text-4xl font-serif font-medium text-foreground mb-4">
+                            Ofisimiz
+                        </h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            Esenyurt, Akros Residence&apos;ta bulunan ofisimizden bir kesit.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {[
+                            { src: '/images/office/0f28360c-12ca-4366-b8fa-d9c5a54617fb.jpg', alt: 'Ofis çalışma alanı' },
+                            { src: '/images/office/72c99b6f-03fa-4b07-8f7c-e02289b53f08.jpg', alt: 'Ofis genel görünüm' },
+                            { src: '/images/office/84be8621-7659-48b0-ac87-9f65c68c2b9f.jpg', alt: 'Ofis bekleme alanı' },
+                        ].map((photo, index) => (
+                            <div
+                                key={index}
+                                className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-border"
+                            >
+                                <Image
+                                    src={photo.src}
+                                    alt={photo.alt}
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

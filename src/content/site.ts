@@ -6,7 +6,7 @@ export const siteContent: SiteContent = {
         slogan: 'Hukukun Gücü, Tecrübenin Teminatıyla Geleceğinizi Güvence Altına Alıyoruz',
         description:
             '2023 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
-        address: 'Levent Mah. Büyükdere Cad. No:123, Şişli, İstanbul',
+        address: 'Akros Residence, Kat 14, Daire 281, Esenyurt, İstanbul',
         phone: '+90 212 123 45 67',
         email: 'info@bozoglanavukatlik.com',
         workingHours: {
@@ -15,7 +15,7 @@ export const siteContent: SiteContent = {
             sunday: 'Kapalı',
         },
         mapEmbedUrl:
-            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.0134655867747!2d29.01139!3d41.0771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA0JzM3LjYiTiAyOcKwMDAnNDEuMCJF!5e0!3m2!1str!2str!4v1234567890',
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5!2d28.6747!3d41.0255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAxJzMxLjgiTiAyOMKwNDAnMjguOSJF!5e0!3m2!1str!2str!4v1234567890',
     },
 
     socialLinks: [
@@ -977,7 +977,7 @@ Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalı�
             '/iletisim': {
                 title: 'İletişim | Bozoğlan Avukatlık Bürosu',
                 description:
-                    'Bozoğlan Avukatlık Bürosu ile iletişime geçin. İstanbul Levent\'te ofisimize uğrayın veya bizi arayın.',
+                    'Bozoğlan Avukatlık Bürosu ile iletişime geçin. İstanbul Esenyurt\'ta ofisimize uğrayın veya bizi arayın.',
             },
             '/sss': {
                 title: 'Sık Sorulan Sorular | Bozoğlan Avukatlık Bürosu',
