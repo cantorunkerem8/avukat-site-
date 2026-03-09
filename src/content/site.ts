@@ -7,7 +7,7 @@ export const siteContent: SiteContent = {
         description:
             '2023 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
         address: 'Akros Residence, Kat 14, Daire 281, Esenyurt, İstanbul',
-        // phone: '+90 212 123 45 67',
+        phone: '+90 537 784 88 34',
         email: 'info@bozoglanavukatlik.com',
         workingHours: {
             weekdays: '09:00 - 18:00',

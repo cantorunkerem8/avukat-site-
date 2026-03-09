@@ -51,7 +51,7 @@ export default function AboutPage() {
                         </div>
                         <div className="group bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                             <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                                <Target className="w-6 h-6 text-accent group-hover:spin-slow transition-transform duration-700" />
+                                <Target className="w-6 h-6 text-accent group-hover:scale-125 group-hover:animate-pulse transition-all duration-300" />
                             </div>
                             <h2 className="text-2xl font-serif font-medium text-foreground mb-4">
                                 Misyonumuz

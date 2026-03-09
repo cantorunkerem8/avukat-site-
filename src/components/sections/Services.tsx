@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Scale, Heart, Briefcase, Users, Building, FileText, ArrowRight } from 'lucide-react';
+import { Scale, Heart, Briefcase, Users, Building, FileText, Globe, ArrowRight } from 'lucide-react';
 import { siteContent } from '@/content/site';
 import type { Service } from '@/types';
 
@@ -14,6 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   users: Users,
   building: Building,
   'file-text': FileText,
+  globe: Globe,
 };
 
 interface ServicesGridProps {
@@ -27,11 +28,18 @@ const CARD_HEIGHT = 160;
 const GAP = 20;
 const COLS = 2;
 
-function getGridPos(index: number) {
+function getGridPos(index: number, total: number) {
   const col = index % COLS;
   const row = Math.floor(index / COLS);
+  let left = col * (CARD_WIDTH + GAP);
+
+  // Son satırda tek eleman varsa ortala
+  if (total % COLS === 1 && index === total - 1) {
+    left = (CARD_WIDTH + GAP) / 2;
+  }
+
   return {
-    left: col * (CARD_WIDTH + GAP),
+    left,
     top: row * (CARD_HEIGHT + GAP),
   };
 }
@@ -117,9 +125,9 @@ export function ServicesGrid({ services, showAll = false }: ServicesGridProps) {
               viewport={{ once: true, margin: '-80px' }}
             >
               {visibleServices.map((service, index) => {
-                const Icon = iconMap[service.icon];
-                const pos = getGridPos(index);
                 const total = visibleServices.length;
+                const Icon = iconMap[service.icon];
+                const pos = getGridPos(index, total);
                 const toCenter_X = CENTER_X - pos.left;
                 const toCenter_Y = CENTER_Y - pos.top;
                 const stackRotate = (index - total / 2 + 0.5) * 4;
