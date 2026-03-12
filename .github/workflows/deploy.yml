@@ -43,6 +43,9 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /app/ # Matches the folder name you created in cPanel
+        port: 21
+        protocol: ftp
+        secure: false # Some cPanel servers don't support FTPS on port 21
+        server-dir: /app/ # This assumes you are in public_html or the root
         local-dir: .next/standalone/
-        dangerous-clean-slate: false # Prevents deleting other vital hosting settings files if any
+        dangerous-clean-slate: false
