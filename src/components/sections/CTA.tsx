@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { Button, PhoneLink } from '@/components/ui';
 import { siteContent } from '@/content/site';
 
 export function CTA() {
@@ -34,15 +34,15 @@ export function CTA() {
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                         {siteContent.office.phone && (
-                            <Button
-                                href={`tel:${siteContent.office.phone}`}
-                                size="lg"
-                                variant="outline"
+                            <PhoneLink
+                                phone={siteContent.office.phone}
+                                isButton
+                                buttonSize="lg"
+                                buttonVariant="outline"
                                 className="border-background/30 text-background hover:bg-background hover:text-foreground"
                             >
-                                <Phone className="mr-2 w-5 h-5" />
                                 Hemen Arayın
-                            </Button>
+                            </PhoneLink>
                         )}
                     </div>
                 </motion.div>

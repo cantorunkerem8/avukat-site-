@@ -25,6 +25,7 @@ export function Hero() {
     const videoOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
     const videoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
     const videoY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+    const arrowPointerEvents = useTransform(scrollYProgress, (v) => v > 0.2 ? "none" : "auto");
 
     // Content section animations - Shifted earlier for better mobile visibility
     const contentOpacity = useTransform(scrollYProgress, [0.05, 0.25], [0, 1]);
@@ -67,29 +68,6 @@ export function Hero() {
                     <div className="absolute inset-0 bg-black/20" />
                     {/* Üst gradient — navbar yazıları okunabilsin */}
                     <div className="absolute inset-x-0 top-0 h-32" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%)' }} />
-
-                    {/* Aşağı kaydır göstergesi */}
-                    <motion.div
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/90"
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                    >
-                        {/* Removed text as requested */}
-                        <svg
-                            viewBox="0 0 52 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="stroke-current w-12 h-auto sm:w-16"
-                            style={{ display: 'block' }}
-                        >
-                            <path
-                                d="M4 6L26 18L48 6"
-                                strokeWidth="7"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </motion.div>
                 </motion.div>
 
                 {/* ===== CONTENT SECTION (beyaz arka plan) ===== */}
@@ -157,6 +135,38 @@ export function Hero() {
                             </motion.div>
                         </div>
                     </div>
+                </motion.div>
+
+                {/* ===== AŞAĞI KAYDIR GÖSTERGESİ ===== */}
+                <motion.div
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-white/90 cursor-pointer"
+                    style={{ opacity: videoOpacity, pointerEvents: arrowPointerEvents as any }}
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    onClick={() => {
+                        if (containerRef.current) {
+                            window.scrollTo({
+                                top: containerRef.current.offsetTop + window.innerHeight * 0.8,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }}
+                >
+                    {/* Removed text as requested */}
+                    <svg
+                        viewBox="0 0 52 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="stroke-current w-12 h-auto sm:w-16"
+                        style={{ display: 'block' }}
+                    >
+                        <path
+                            d="M4 6L26 18L48 6"
+                            strokeWidth="7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
                 </motion.div>
 
             </div>

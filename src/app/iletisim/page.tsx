@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout';
-import { Card, CardContent, LocationMap } from '@/components/ui';
+import { Card, CardContent, LocationMap, PhoneLink } from '@/components/ui';
 import { siteContent } from '@/content/site';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { ContactForm } from './ContactForm';
@@ -72,14 +72,15 @@ export default function ContactPage() {
                                         {siteContent.office.phone && (
                                             <div className="flex items-start gap-3">
                                                 <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                                                <div>
+                                                <div className="flex flex-col items-start text-left">
                                                     <p className="font-medium text-foreground">Telefon</p>
-                                                    <a
-                                                        href={`tel:${siteContent.office.phone}`}
-                                                        className="text-sm text-muted-foreground hover:text-accent"
+                                                    <PhoneLink
+                                                        phone={siteContent.office.phone}
+                                                        className="text-sm text-muted-foreground hover:text-accent !gap-1"
+                                                        hideIcon
                                                     >
                                                         {siteContent.office.phone}
-                                                    </a>
+                                                    </PhoneLink>
                                                 </div>
                                             </div>
                                         )}

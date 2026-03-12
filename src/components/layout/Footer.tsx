@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { siteContent } from '@/content/site';
+import { PhoneLink } from '@/components/ui';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     linkedin: Linkedin,
@@ -95,10 +96,9 @@ export function Footer() {
                             </li>
                             {siteContent.office.phone && (
                                 <li className="flex items-center gap-3 text-sm text-background/70">
-                                    <Phone className="w-5 h-5 text-accent shrink-0" />
-                                    <a href={`tel:${siteContent.office.phone}`} className="hover:text-accent transition-colors">
+                                    <PhoneLink phone={siteContent.office.phone} iconClassName="w-5 h-5 text-accent" className="hover:text-accent transition-colors">
                                         {siteContent.office.phone}
-                                    </a>
+                                    </PhoneLink>
                                 </li>
                             )}
                             <li className="flex items-center gap-3 text-sm text-background/70">

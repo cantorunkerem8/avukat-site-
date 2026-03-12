@@ -11,3 +11,4 @@ export { Accordion } from './Accordion';
 export { Skeleton } from './Skeleton';
 export * from './CookieConsent';
 export * from './LocationMap';
+export * from './PhoneLink';

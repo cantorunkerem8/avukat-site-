@@ -211,11 +211,11 @@ export function KVKKContent() {
                         KVKK kapsamındaki haklarınızı kullanmak veya aydınlatma metnimiz hakkında detaylı bilgi almak için bize ulaşabilirsiniz.
                     </p>
                     <a
-                        href="mailto:kvkk@bozoglanavukatlik.com"
+                        href="mailto:info@bozoglanavukatlik.com"
                         className="inline-flex items-center gap-2 bg-background text-foreground px-6 py-3 rounded-full font-medium hover:scale-105 transition-transform shadow-lg"
                     >
                         <HelpCircle className="w-5 h-5" />
-                        kvkk@bozoglanavukatlik.com
+                        info@bozoglanavukatlik.com
                     </a>
                 </div>
             </motion.section>

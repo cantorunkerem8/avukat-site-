@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { siteContent } from '@/content/site';
-import { Button } from '@/components/ui';
+import { Button, PhoneLink } from '@/components/ui';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -133,10 +133,9 @@ export function Navbar() {
               isOverVideo && pathname === '/' ? 'text-white/80' : 'text-muted-foreground'
             )}>
               {siteContent.office.phone && (
-                <>
-                  <Phone className="w-4 h-4" />
-                  <span>{siteContent.office.phone}</span>
-                </>
+                <PhoneLink phone={siteContent.office.phone} iconClassName="w-4 h-4" hideIcon>
+                  {siteContent.office.phone}
+                </PhoneLink>
               )}
             </div>
             <Button href="/iletisim" size="sm" className="hidden sm:inline-flex">
