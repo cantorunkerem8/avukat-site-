@@ -204,123 +204,27 @@ Ekibimiz; süreçlerinizi hassasiyetle yürütmek, her bir yabancı için kişis
         },
     ],
 
-    team: [ /*
+    team: [
         {
             id: '1',
-            name: 'Ahmet Yılmaz',
-            slug: 'ahmet-yilmaz',
-            title: 'Kurucu Ortak, Avukat',
-            specialties: ['Ceza Hukuku', 'Ticaret Hukuku', 'İcra Hukuku'],
+            name: 'Av. Ali Bozoğlan',
+            slug: 'ali-bozoglan',
+            title: 'Kurucu Avukat',
+            specialties: ['Ceza Hukuku', 'Ticaret Hukuku', 'İcra ve İflas Hukuku', 'Yabancılar Hukuku'],
             shortBio:
-                '3 yıllık deneyimi ile ceza ve ticaret hukuku alanında uzmanlaşmış kurucu ortak.',
-            longBio: `Ahmet Yılmaz, 2022 yılında İstanbul Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mesleki kariyerine İstanbul Barosu'nda başlamış, 2023 yılında Bozoğlan Avukatlık Bürosu'nu kurmuştur.
+                'Bozoğlan Avukatlık Bürosu kurucusu, proaktif hukuk anlayışıyla müvekkillerine stratejik çözümler sunan deneyimli avukat.',
+            longBio: `Av. Ali Bozoğlan, müvekkillerinin haklarını korumak ve hukuki süreçleri en verimli şekilde yönetmek amacıyla Bozoğlan Avukatlık Bürosu'nu kurmuştur.
 
-Ceza hukuku ve ticaret hukuku alanlarında uzmanlaşan Ahmet Yılmaz, çok sayıda karmaşık dada başarıyla müvekkillerini temsil etmiştir. Özellikle ekonomik suçlar ve ticari uyuşmazlıklar konularında deneyime sahiptir.
-
-İstanbul Barosu ve Türk Hukuk Kurumu üyesi olan Ahmet Yılmaz, düzenli olarak hukuk seminerleri ve konferanslara konuşmacı olarak katılmaktadır.`,
-            education: [
-                'İstanbul Üniversitesi Hukuk Fakültesi (2022)',
-                'İstanbul Bilgi Üniversitesi - Ekonomik Suçlar Sertifikası (2023)',
-            ],
-            languages: ['Türkçe', 'İngilizce'],
-            barInfo: 'İstanbul Barosu - 2022',
-            phone: '+90 532 123 45 67',
+Ticaret hukuku, icra ve iflas hukuku, yabancılar hukuku ve ceza hukuku başta olmak üzere geniş bir yelpazede hukuki danışmanlık ve dava takip hizmeti sunmaktadır. Temel prensibi, uyuşmazlıkları ortaya çıkmadan önleyici hukuk tedbirleriyle çözmek ve müvekkillerini geleceğin risklerine karşı korumaktır.`,
+            education: [],
+            languages: ['Türkçe'],
+            barInfo: 'İstanbul Barosu - Sicil No: 88962',
+            phone: '+90 537 784 88 34',
             imagePlaceholder: {
-                initials: 'AY',
+                initials: 'AB',
                 bgColor: 'bg-gradient-to-br from-amber-600 to-amber-800',
             },
-        },
-        {
-            id: '2',
-            name: 'Elif Kaya',
-            slug: 'elif-kaya',
-            title: 'Ortak, Avukat',
-            specialties: ['Aile Hukuku', 'Gayrimenkul Hukuku', 'Miras Hukuku'],
-            shortBio:
-                'Aile ve gayrimenkul hukuku alanında 15 yıllık deneyime sahip ortak avukat.',
-            longBio: `Elif Kaya, 2005 yılında Ankara Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mesleki kariyerine Ankara'da başlamış, 2010 yılında İstanbul'a taşınarak Bozoğlan Avukatlık Bürosu'na katılmıştır.
-
-Aile hukuku ve gayrimenkul hukuku alanlarında uzmanlaşan Elif Kaya, özellikle boşanma davaları, mal paylaşımı ve tapu uyuşmazlıkları konularında geniş deneyime sahiptir.
-
-Müvekkillerine çözüm odaklı yaklaşımı ile tanınan Elif Kaya, arabuluculuk sertifikasına da sahiptir.`,
-            education: [
-                'Ankara Üniversitesi Hukuk Fakültesi (2005)',
-                'Arabuluculuk Sertifikası (2015)',
-            ],
-            languages: ['Türkçe', 'İngilizce', 'Fransızca'],
-            barInfo: 'İstanbul Barosu - 2005',
-            phone: '+90 532 123 45 67',
-            imagePlaceholder: {
-                initials: 'EK',
-                bgColor: 'bg-gradient-to-br from-rose-500 to-rose-700',
-            },
-        },
-        {
-            id: '3',
-            name: 'Mehmet Demir',
-            slug: 'mehmet-demir',
-            title: 'Kıdemli Avukat',
-            specialties: ['İş Hukuku', 'Aile Hukuku', 'Tazminat Hukuku'],
-            shortBio:
-                'İş hukuku ve tazminat davaları alanında uzmanlaşmış kıdemli avukat.',
-            longBio: `Mehmet Demir, 2010 yılında Marmara Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mezuniyetinin ardından Bozoğlan Avukatlık Bürosu'na katılmış ve iş hukuku alanında uzmanlaşmıştır.
-
-İşçi alacakları, işe iade ve iş kazaları davaları konularında geniş deneyime sahip olan Mehmet Demir, hem işçi hem de işveren müvekkillerine danışmanlık hizmeti sunmaktadır.
-
-Ayrıca aile hukuku ve tazminat davaları alanında da aktif olarak çalışmaktadır.`,
-            education: ['Marmara Üniversitesi Hukuk Fakültesi (2010)'],
-            languages: ['Türkçe', 'İngilizce'],
-            barInfo: 'İstanbul Barosu - 2010',
-            phone: '+90 532 123 45 67',
-            imagePlaceholder: {
-                initials: 'MD',
-                bgColor: 'bg-gradient-to-br from-emerald-500 to-emerald-700',
-            },
-        },
-        {
-            id: '4',
-            name: 'Zeynep Arslan',
-            slug: 'zeynep-arslan',
-            title: 'Avukat',
-            specialties: ['Ticaret Hukuku', 'İş Hukuku', 'Sözleşmeler'],
-            shortBio:
-                'Ticaret ve iş hukuku alanında uzmanlaşmış, sözleşme hazırlama konusunda deneyimli avukat.',
-            longBio: `Zeynep Arslan, 2015 yılında Koç Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mezuniyetinin ardından Bozoğlan Avukatlık Bürosu'na katılmıştır.
-
-Ticaret hukuku ve sözleşmeler alanında uzmanlaşan Zeynep Arslan, şirket kuruluşu, ticari sözleşmeler ve iş hukuku danışmanlığı konularında aktif olarak çalışmaktadır.
-
-İngilizce hukuki metinler hazırlayabilen Zeynep Arslan, uluslararası müvekkillerimize de destek vermektedir.`,
-            education: ['Koç Üniversitesi Hukuk Fakültesi (2015)'],
-            languages: ['Türkçe', 'İngilizce'],
-            barInfo: 'İstanbul Barosu - 2015',
-            phone: '+90 532 123 45 67',
-            imagePlaceholder: {
-                initials: 'ZA',
-                bgColor: 'bg-gradient-to-br from-violet-500 to-violet-700',
-            },
-        },
-        {
-            id: '5',
-            name: 'Can Özkan',
-            slug: 'can-ozkan',
-            title: 'Avukat',
-            specialties: ['Gayrimenkul Hukuku', 'İcra Hukuku', 'Ticaret Hukuku'],
-            shortBio:
-                'Gayrimenkul ve icra hukuku alanında uzmanlaşmış genç ve dinamik avukat.',
-            longBio: `Can Özkan, 2018 yılında İstanbul Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. Mezuniyetinin ardından Bozoğlan Avukatlık Bürosu'na katılmıştır.
-
-Gayrimenkul hukuku ve icra takibi alanlarında uzmanlaşan Can Özkan, tapu işlemleri, kira uyuşmazlıkları ve alacak tahsili konularında aktif olarak çalışmaktadır.
-
-Müvekkillerine hızlı ve etkili çözümler sunma konusunda titizlikle çalışmaktadır.`,
-            education: ['İstanbul Üniversitesi Hukuk Fakültesi (2018)'],
-            languages: ['Türkçe', 'İngilizce'],
-            barInfo: 'İstanbul Barosu - 2018',
-            phone: '+90 532 123 45 67',
-            imagePlaceholder: {
-                initials: 'CÖ',
-                bgColor: 'bg-gradient-to-br from-sky-500 to-sky-700',
-            },
-        }, */
+        }
     ],
 
 

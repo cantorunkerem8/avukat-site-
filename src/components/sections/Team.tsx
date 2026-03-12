@@ -36,8 +36,9 @@ function getGridPos(index: number, cols: number) {
 export function TeamGrid({ team, showAll = false }: TeamGridProps) {
     const pathname = usePathname();
     const displayTeam = team || siteContent.team;
-    // Duplicate for infinite scroll
-    const visibleTeam = [...displayTeam, ...displayTeam, ...displayTeam];
+    // Duplicate for infinite scroll only if we have more than 1 member
+    const isSingleMember = displayTeam.length === 1;
+    const visibleTeam = isSingleMember ? displayTeam : [...displayTeam, ...displayTeam, ...displayTeam];
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const COLS = visibleTeam.length;
@@ -60,7 +61,7 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
 
     // Auto-scroll and Scaling Effect Loop
     useEffect(() => {
-        if (isMobile) return;
+        if (isMobile || isSingleMember) return;
 
         const container = scrollContainerRef.current;
         if (!container) return;
@@ -167,7 +168,7 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                     ) : (
                         <>
                             {/* Mobile View - Horizontal Swipeable Carousel */}
-                            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-full pb-8 scrollbar-hide px-4 -mx-4">
+                            <div className={cn("flex overflow-x-auto snap-x snap-mandatory gap-4 w-full pb-8 scrollbar-hide px-4 -mx-4", isSingleMember && "justify-center")}>
                                 {displayTeam.map((member) => (
                                     <div key={member.id} className="snap-center shrink-0 w-[85vw] max-w-sm">
                                         <Link href={`/ekibimiz/${member.slug}`} className="block w-full h-full">
@@ -194,12 +195,14 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                             </div>
 
                             {/* Mobile 'See All' Button */}
-                            <div className="mt-6 flex justify-center">
-                                <Button href="/ekibimiz" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                                    Tüm Ekibi Gör
-                                    <ArrowRight className="ml-2 w-4 h-4" />
-                                </Button>
-                            </div>
+                            {displayTeam.length > 3 && (
+                                <div className="mt-6 flex justify-center">
+                                    <Button href="/ekibimiz" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                                        Tüm Ekibi Gör
+                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                    </Button>
+                                </div>
+                            )}
                         </>
                     )
                 ) : (
@@ -209,14 +212,16 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                         onMouseLeave={() => setIsPaused(false)}
                     >
                         {/* Buttons (keep them but they control scroll offset) */}
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="hidden lg:flex absolute left-8 z-30 rounded-full h-12 w-12 p-0 border border-white/20 bg-black/30 backdrop-blur-sm text-white hover:bg-white/10 hover:text-accent transition-all"
-                            onClick={scrollLeft}
-                        >
-                            <ChevronLeft className="h-6 w-6" />
-                        </Button>
+                        {!isSingleMember && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className="hidden lg:flex absolute left-8 z-30 rounded-full h-12 w-12 p-0 border border-white/20 bg-black/30 backdrop-blur-sm text-white hover:bg-white/10 hover:text-accent transition-all"
+                                onClick={scrollLeft}
+                            >
+                                <ChevronLeft className="h-6 w-6" />
+                            </Button>
+                        )}
 
                         <div
                             ref={scrollContainerRef}
@@ -224,7 +229,8 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                             style={{
                                 width: '100%',
                                 display: 'flex',
-                                whiteSpace: 'nowrap'
+                                whiteSpace: 'nowrap',
+                                justifyContent: isSingleMember ? 'center' : 'flex-start'
                             }}
                         >
                             <motion.div
@@ -311,14 +317,17 @@ export function TeamGrid({ team, showAll = false }: TeamGridProps) {
                                 })}
                             </motion.div>
                         </div>
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="hidden lg:flex absolute right-8 z-30 rounded-full h-12 w-12 p-0 border border-white/20 bg-black/30 backdrop-blur-sm text-white hover:bg-white/10 hover:text-accent transition-all"
-                            onClick={scrollRight}
-                        >
-                            <ChevronRight className="h-6 w-6" />
-                        </Button>
+
+                        {!isSingleMember && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className="hidden lg:flex absolute right-8 z-30 rounded-full h-12 w-12 p-0 border border-white/20 bg-black/30 backdrop-blur-sm text-white hover:bg-white/10 hover:text-accent transition-all"
+                                onClick={scrollRight}
+                            >
+                                <ChevronRight className="h-6 w-6" />
+                            </Button>
+                        )}
                     </div>
                 )}
             </div>
