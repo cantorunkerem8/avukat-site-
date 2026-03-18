@@ -119,19 +119,34 @@ export function Footer() {
                 </div >
 
                 {/* Bottom */}
-                < div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4" >
-                    <p className="text-sm text-background/50">
-                        © {currentYear} {siteContent.office.name}. Tüm hakları saklıdır.
-                    </p>
-                    <div className="flex gap-6 text-sm text-background/50">
+                <div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p className="text-sm text-background/50 flex flex-wrap items-center gap-x-4 gap-y-1">
+                        <span>© {currentYear} {siteContent.office.name}. Tüm hakları saklıdır.</span>
                         <Link href="/gizlilik" className="hover:text-accent transition-colors">
                             Gizlilik Politikası
                         </Link>
                         <Link href="/kvkk" className="hover:text-accent transition-colors">
                             KVKK
                         </Link>
-                    </div>
-                </div >
+                    </p>
+                    <a 
+                        href="https://aytacc.online/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="flex items-center gap-2 translate-x-1 translate-y-[2px] transition-opacity hover:opacity-80"
+                    >
+                        <Image
+                            src="/images/300081da-0dd2-40a2-898f-a02e2a06828d.png"
+                            alt="Aytacc"
+                            width={80}
+                            height={27}
+                            className="object-contain"
+                        />
+                        <span className="text-xs text-background/50">
+                            Bu site Aytacc<span style={{ color: '#ef4444' }}>™</span> tarafından yapılmıştır
+                        </span>
+                    </a>
+                </div>
             </div >
         </footer >
     );

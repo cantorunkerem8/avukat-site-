@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://guvenhukuk.com'),
+  metadataBase: new URL('https://bozoğlanhukuk.com.tr'),
   title: {
     default: siteContent.seo.default.title,
     template: `%s | ${siteContent.office.name}`,
@@ -28,10 +28,13 @@ export const metadata: Metadata = {
   keywords: siteContent.seo.default.keywords,
   authors: [{ name: siteContent.office.name }],
   creator: siteContent.office.name,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://guvenhukuk.com',
+    url: 'https://bozoğlanhukuk.com.tr',
     siteName: siteContent.office.name,
     title: siteContent.seo.default.title,
     description: siteContent.seo.default.description,
