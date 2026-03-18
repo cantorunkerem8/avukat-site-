@@ -45,7 +45,8 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         port: 21
         protocol: ftp
-        secure: true # Some cPanel servers require Explicit FTPS over port 21
+        secure: false # Revert to false for verbose debugging
+        log-level: verbose
         server-dir: /app/ # This assumes you are in public_html or the root
         local-dir: .next/standalone/
         dangerous-clean-slate: false
