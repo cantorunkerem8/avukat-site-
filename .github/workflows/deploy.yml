@@ -43,10 +43,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        port: 21
-        protocol: ftp
-        secure: false # Revert to false for verbose debugging
-        log-level: verbose
-        server-dir: /app/ # This assumes you are in public_html or the root
+        server-dir: ./app/ # Adjusted path to prevent potential root jail issues
         local-dir: .next/standalone/
         dangerous-clean-slate: false
