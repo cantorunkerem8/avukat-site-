@@ -56,7 +56,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-serif font-medium text-lg mb-4">Hızlı Erişim</h3>
                         <ul className="space-y-2">
-                            {siteContent.navigation.slice(0, 6).map((item) => (
+                            {siteContent.navigation.map((item) => (
                                 <li key={item.href}>
                                     <Link
                                         href={item.href}
@@ -73,7 +73,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-serif font-medium text-lg mb-4">Hizmetler</h3>
                         <ul className="space-y-2">
-                            {siteContent.services.slice(0, 6).map((service) => (
+                            {siteContent.services.map((service) => (
                                 <li key={service.id}>
                                     <Link
                                         href={`/hizmetler/${service.slug}`}

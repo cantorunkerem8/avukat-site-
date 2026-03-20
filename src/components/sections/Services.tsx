@@ -49,7 +49,7 @@ const CENTER_X = ((COLS - 1) * (CARD_WIDTH + GAP)) / 2;
 
 export function ServicesGrid({ services, showAll = false }: ServicesGridProps) {
   const displayServices = services || siteContent.services;
-  const visibleServices = showAll ? displayServices : displayServices.slice(0, 6);
+  const visibleServices = showAll ? displayServices : displayServices;
   const totalWidth = COLS * CARD_WIDTH + (COLS - 1) * GAP;
   const ROWS = Math.ceil(visibleServices.length / COLS);
   const totalHeight = ROWS * CARD_HEIGHT + (ROWS - 1) * GAP;
