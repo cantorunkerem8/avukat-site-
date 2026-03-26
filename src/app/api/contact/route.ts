@@ -29,19 +29,20 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Invalid OTP' }, { status: 400 });
         }
 
-        // 2. OTP is valid! Send the actual message to Admin
+        // 2. OTP is valid! Send the actual message to Admin using Brevo
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
+            secure: false, // 587 uses STARTTLS
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
-            },
+            }
         });
 
         // Send to Admin
         await transporter.sendMail({
-            from: `"Bozoglan Hukuk Sitesi" <${process.env.SMTP_USER}>`,
+            from: `"Av. Ali Bozoglan" <${process.env.FROM_EMAIL}>`,
             to: process.env.ADMIN_EMAIL || 'info@bozoglanavukatlik.com', // Admin receives this
             replyTo: email, // If admin replies, it goes to the user
             subject: `Yeni İletişim Mesajı: ${subject}`,
@@ -87,6 +88,9 @@ export async function POST(req: Request) {
 
     } catch (error) {
         console.error('Error processing contact form:', error);
-        return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
+        return NextResponse.json({ 
+            error: error instanceof Error ? error.message : 'Failed to process request',
+            details: error
+        }, { status: 500 });
     }
 }

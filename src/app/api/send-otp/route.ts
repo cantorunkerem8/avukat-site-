@@ -3,9 +3,6 @@ import nodemailer from 'nodemailer';
 import otpGenerator from 'otp-generator';
 import crypto from 'crypto';
 
-// Remove older "server-only" if present or just keep it simple.
-// In Next.js App Router, route handlers run on server by default.
-
 export async function POST(req: Request) {
     try {
         const { email } = await req.json();
@@ -22,19 +19,20 @@ export async function POST(req: Request) {
             digits: true,
         });
 
-        // 2. Configure Transporter
+        // 2. Configure Transporter for Brevo
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
+            secure: false, // 587 uses STARTTLS
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
-            },
+            }
         });
 
         // 3. Send Email
         await transporter.sendMail({
-            from: `"Bozoglan Hukuk" <${process.env.SMTP_USER}>`, // Recommended by Brevo
+            from: `"Av. Ali Bozoglan" <${process.env.FROM_EMAIL}>`,
             to: email, // Send OTP to the user
             subject: 'Doğrulama Kodunuz - Bozoglan Hukuk',
             text: `Doğrulama Kodunuz: ${otp}\n\nBu kodu iletişim formunu onaylamak için kullanınız.`,
@@ -49,8 +47,6 @@ export async function POST(req: Request) {
         });
 
         // 4. Create Hash for stateless verification
-        // Hash = SHA256(email + otp + secret + expiry)
-        // Expiry = Current Time + 5 minutes
         const expiry = Date.now() + 5 * 60 * 1000;
         const data = `${email}.${otp}.${expiry}`;
         const hash = crypto
@@ -58,11 +54,13 @@ export async function POST(req: Request) {
             .update(data)
             .digest('hex');
 
-        // Return hash and expiry to client
         return NextResponse.json({ hash: `${hash}.${expiry}`, email });
 
     } catch (error) {
         console.error('Error sending OTP:', error);
-        return NextResponse.json({ error: 'Failed to send OTP' }, { status: 500 });
+        return NextResponse.json({ 
+            error: error instanceof Error ? error.message : 'Failed to send OTP',
+            details: error
+        }, { status: 500 });
     }
 }

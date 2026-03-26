@@ -61,7 +61,7 @@ export function ContactForm() {
       setOtpSent(true);
     } catch (error) {
       console.error('OTP Error:', error);
-      alert('Doğrulama kodu gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+      alert(`Doğrulama kodu gönderilirken bir hata oluştu: ${error instanceof Error ? error.message : 'Bilinmeyen hata'}`);
     } finally {
       setLoading(false);
     }
