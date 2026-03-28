@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 import otpGenerator from 'otp-generator';
 import crypto from 'crypto';
+
+const BREVO_API_KEY = 'xsmtpsib-00366b5790be4df927b9c9780000a6e8df8186105c3175c08f43063f27116801-Oq6JcM1I8r0S4pY7';
 
 export async function POST(req: Request) {
     try {
@@ -11,7 +12,6 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Email is required' }, { status: 400 });
         }
 
-        // 1. Generate OTP (6 digits, numbers only)
         const otp = otpGenerator.generate(6, {
             upperCaseAlphabets: false,
             specialChars: false,
@@ -19,48 +19,36 @@ export async function POST(req: Request) {
             digits: true,
         });
 
-        // 2. Configure Transporter for Brevo
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: false, // 587 uses STARTTLS
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            }
+        const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'api-key': BREVO_API_KEY,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                sender: { name: 'Bozoglan Hukuk', email: 'info@bozoglanavukatlik.com' },
+                to: [{ email: email }],
+                subject: 'Dogrulama Kodunuz - Bozoglan Hukuk',
+                htmlContent: '<div style="font-family:sans-serif;padding:20px;border:1px solid #eee;border-radius:10px"><h2>Dogrulama Kodunuz</h2><p style="font-size:24px;font-weight:bold;letter-spacing:5px;color:#333">' + otp + '</p><p>Bu kodu iletisim formunu onaylamak icin kullaniniz.</p><p style="color:#888;font-size:12px">Bu kodu siz talep etmediyseniz dikkate almayiniz.</p></div>',
+            }),
         });
 
-        // 3. Send Email
-        await transporter.sendMail({
-            from: `"Av. Ali Bozoglan" <${process.env.FROM_EMAIL}>`,
-            to: email, // Send OTP to the user
-            subject: 'Doğrulama Kodunuz - Bozoglan Hukuk',
-            text: `Doğrulama Kodunuz: ${otp}\n\nBu kodu iletişim formunu onaylamak için kullanınız.`,
-            html: `
-        <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-          <h2>Doğrulama Kodunuz</h2>
-          <p style="font-size: 24px; font-weight: bold; letter-spacing: 5px; color: #333;">${otp}</p>
-          <p>Bu kodu sitenizdeki iletişim formunu onaylamak için kullanınız.</p>
-          <p style="color: #888; font-size: 12px;">Bu kodu siz talep etmediyseniz, lütfen dikkate almayınız.</p>
-        </div>
-      `,
-        });
+        if (!res.ok) {
+            const errBody = await res.text();
+            throw new Error('Brevo API: ' + errBody);
+        }
 
-        // 4. Create Hash for stateless verification
         const expiry = Date.now() + 5 * 60 * 1000;
         const data = `${email}.${otp}.${expiry}`;
-        const hash = crypto
-            .createHmac('sha256', process.env.OTP_SECRET || 'secret')
-            .update(data)
-            .digest('hex');
+        const hash = crypto.createHmac('sha256', 'bozoglan-secret-2026').update(data).digest('hex');
 
         return NextResponse.json({ hash: `${hash}.${expiry}`, email });
-
     } catch (error) {
         console.error('Error sending OTP:', error);
-        return NextResponse.json({ 
+        return NextResponse.json({
             error: error instanceof Error ? error.message : 'Failed to send OTP',
-            details: error
+            details: error,
         }, { status: 500 });
     }
 }
