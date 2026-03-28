@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 
-const BREVO_API_KEY = 'xsmtpsib-00366b5790be4df927b9c9780000a6e8df8186105c3175c08f43063f27116801-Oq6JcM1I8r0S4pY7';
-
 export async function POST(req: Request) {
   try {
     const { formData, otp, hash } = await req.json();
@@ -20,7 +18,7 @@ export async function POST(req: Request) {
     }
 
     const data = `${email}.${otp}.${expiry}`;
-    const newHash = crypto.createHmac('sha256', 'bozoglan-secret-2026').update(data).digest('hex');
+    const newHash = crypto.createHmac('sha256', process.env.OTP_SECRET || 'bozoglan-secret-2026').update(data).digest('hex');
 
     if (newHash !== hashValue) {
       return NextResponse.json({ error: 'Invalid OTP' }, { status: 400 });
@@ -30,12 +28,12 @@ export async function POST(req: Request) {
       method: 'POST',
       headers: {
         'accept': 'application/json',
-        'api-key': BREVO_API_KEY,
+        'api-key': process.env.BREVO_API_KEY || '',
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Web Form', email: 'info@bozoglanavukatlik.com' },
-        to: [{ email: 'info@bozoglanavukatlik.com' }],
+        sender: { name: 'Web Form', email: process.env.SENDER_EMAIL || 'info@bozoglanavukatlik.com' },
+        to: [{ email: process.env.ADMIN_EMAIL || 'info@bozoglanavukatlik.com' }],
         replyTo: { email: email, name: name },
         subject: 'Yeni Iletisim Mesaji: ' + subject,
         htmlContent: '<div style="font-family:sans-serif;padding:20px"><h2>Yeni Iletisim Mesaji</h2><p><strong>Ad Soyad:</strong> ' + name + '</p><p><strong>E-posta:</strong> ' + email + '</p><p><strong>Telefon:</strong> ' + phone + '</p><p><strong>Konu:</strong> ' + subject + '</p><hr><h3>Mesaj:</h3><p>' + message + '</p></div>',

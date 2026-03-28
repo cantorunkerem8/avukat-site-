@@ -11,38 +11,46 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 🚚 Get latest code
+    - name: Get latest code
       uses: actions/checkout@v4
       
-    - name: 🛠️ Setup Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'
         
-    - name: 📦 Install Dependencies
-      run: npm ci # Uses package-lock.json for reliable installs
+    - name: Install Dependencies
+      run: npm ci
       
-    - name: 🏗️ Build Application
+    - name: Create .env file for build
+      run: |
+        echo "BREVO_API_KEY=${{ secrets.BREVO_API_KEY }}" >> .env.local
+        echo "SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}" >> .env.local
+        echo "ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}" >> .env.local
+        echo "OTP_SECRET=${{ secrets.OTP_SECRET }}" >> .env.local
+        
+    - name: Build Application
       run: npm run build
       
-    - name: 🗜️ Prepare Standalone Folder
+    - name: Prepare Standalone Folder
       run: |
-        # Copy necessary public and static files to standalone
         cp -r public .next/standalone/
         cp -r .next/static .next/standalone/.next/
         
-        # cPanel (Phusion Passenger) automatically restarts the app if tmp/restart.txt is modified
-        # Creating this so the server automatically restarts upon new deployment
+        # Copy .env.local into standalone so runtime env vars work
+        cp .env.local .next/standalone/.env.local
+        
+        # Phusion Passenger restart trigger
         mkdir -p .next/standalone/tmp
         touch .next/standalone/tmp/restart.txt
         
-    - name: 📂 Deploy via FTP to cPanel
+    - name: Deploy via FTP to cPanel
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ./app/ # Adjusted path to prevent potential root jail issues
+        server-dir: ./app/
         local-dir: .next/standalone/
         dangerous-clean-slate: false
