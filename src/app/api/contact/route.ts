@@ -32,7 +32,7 @@ export async function POST(req: Request) {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Web Form', email: 'keremcantorun44@gmail.com' },
+        sender: { name: 'Web Form', email: 'av.ali@xn--bozolanhukuk-gyb.com.tr' },
         to: [{ email: 'av.ali@xn--bozolanhukuk-gyb.com.tr' }],
         replyTo: { email: email, name: name },
         subject: 'Yeni Iletisim Mesaji: ' + subject,
