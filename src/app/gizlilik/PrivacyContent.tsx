@@ -190,11 +190,11 @@ export function PrivacyContent() {
                         Gizlilik politikamız hakkında daha fazla bilgi almak için bizimle iletişime geçmekten çekinmeyin.
                     </p>
                     <a
-                        href="mailto:info@bozoglanavukatlik.com"
+                        href="mailto:av.ali@bozoğlanhukuk.com.tr"
                         className="inline-flex items-center gap-2 bg-background text-foreground px-6 py-3 rounded-full font-medium hover:scale-105 transition-transform shadow-lg"
                     >
                         <Mail className="w-5 h-5" />
-                        info@bozoglanavukatlik.com
+                        av.ali@bozoğlanhukuk.com.tr
                     </a>
                 </div>
             </motion.section>
