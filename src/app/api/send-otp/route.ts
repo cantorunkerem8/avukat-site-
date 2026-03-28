@@ -25,7 +25,7 @@ export async function POST(req: Request) {
                 'content-type': 'application/json',
             },
             body: JSON.stringify({
-                sender: { name: 'Bozoglan Hukuk', email: 'av.ali@bozoğlanhukuk.com.tr' },
+                sender: { name: 'Av. Ali Bozoğlan', email: 'av.ali@bozoğlanhukuk.com.tr' },
                 to: [{ email: email }],
                 subject: 'Dogrulama Kodunuz - Bozoglan Hukuk',
                 htmlContent: '<div style="font-family:sans-serif;padding:20px;border:1px solid #eee;border-radius:10px"><h2>Dogrulama Kodunuz</h2><p style="font-size:24px;font-weight:bold;letter-spacing:5px;color:#333">' + otp + '</p><p>Bu kodu iletisim formunu onaylamak icin kullaniniz.</p><p style="color:#888;font-size:12px">Bu kodu siz talep etmediyseniz dikkate almayiniz.</p></div>',
