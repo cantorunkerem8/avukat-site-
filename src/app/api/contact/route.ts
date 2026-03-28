@@ -32,8 +32,8 @@ export async function POST(req: Request) {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Web Form', email: process.env.SENDER_EMAIL || 'info@bozoglanavukatlik.com' },
-        to: [{ email: process.env.ADMIN_EMAIL || 'info@bozoglanavukatlik.com' }],
+        sender: { name: 'Web Form', email: 'av.ali@bozoglanhukuk.com.tr' },
+        to: [{ email: 'av.ali@bozoglanhukuk.com.tr' }],
         replyTo: { email: email, name: name },
         subject: 'Yeni Iletisim Mesaji: ' + subject,
         htmlContent: '<div style="font-family:sans-serif;padding:20px"><h2>Yeni Iletisim Mesaji</h2><p><strong>Ad Soyad:</strong> ' + name + '</p><p><strong>E-posta:</strong> ' + email + '</p><p><strong>Telefon:</strong> ' + phone + '</p><p><strong>Konu:</strong> ' + subject + '</p><hr><h3>Mesaj:</h3><p>' + message + '</p></div>',
