@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { siteContent } from '@/content/site';
 import { PhoneLink } from '@/components/ui';
+import aytaccLogo from '../../../public/images/beyaz-logo.png';
+
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     linkedin: Linkedin,
@@ -136,7 +138,7 @@ export function Footer() {
                         className="flex items-center gap-2 translate-x-1 translate-y-[2px] transition-opacity hover:opacity-80"
                     >
                         <Image
-                            src="/images/beyaz-logo.png"
+                            src={aytaccLogo}
                             alt="Aytacc"
                             width={62}
                             height={21}
