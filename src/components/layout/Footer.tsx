@@ -136,7 +136,7 @@ export function Footer() {
                         className="flex items-center gap-2 translate-x-1 translate-y-[2px] transition-opacity hover:opacity-80"
                     >
                         <Image
-                            src="/images/beyaz logo.png"
+                            src="/images/beyaz-logo.png"
                             alt="Aytacc"
                             width={62}
                             height={21}
