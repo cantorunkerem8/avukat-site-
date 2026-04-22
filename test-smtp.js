@@ -1,10 +1,8 @@
 const nodemailer = require('nodemailer');
 
 const configs = [
-    { name: 'Port 465, UTF-8 User, Secure', host: 'smtp.maillb.com', port: 465, secure: true, user: 'av.ali@bozoğlanhukuk.com.tr' },
-    { name: 'Port 587, UTF-8 User, STARTTLS', host: 'smtp.maillb.com', port: 587, secure: false, user: 'av.ali@bozoğlanhukuk.com.tr' },
-    { name: 'Port 465, Punycode User, Secure', host: 'smtp.maillb.com', port: 465, secure: true, user: 'av.ali@xn--bozolanhukuk-s9b.com.tr' },
-    { name: 'Port 587, Punycode User, STARTTLS', host: 'smtp.maillb.com', port: 587, secure: false, user: 'av.ali@xn--bozolanhukuk-s9b.com.tr' },
+    { name: 'Port 465, ASCII User, Secure', host: 'smtp.maillb.com', port: 465, secure: true, user: 'av.ali@bozoglanhukuk.com.tr' },
+    { name: 'Port 587, ASCII User, STARTTLS', host: 'smtp.maillb.com', port: 587, secure: false, user: 'av.ali@bozoglanhukuk.com.tr' },
     { name: 'Port 465, Plain User (No Domain), Secure', host: 'smtp.maillb.com', port: 465, secure: true, user: 'av.ali' },
 ];
 

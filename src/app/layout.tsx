@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bozoğlanhukuk.com.tr'),
+  metadataBase: new URL('https://bozoglanhukuk.com.tr'),
   title: {
     default: siteContent.seo.default.title,
     template: `%s | ${siteContent.office.name}`,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://bozoğlanhukuk.com.tr',
+    url: 'https://bozoglanhukuk.com.tr',
     siteName: siteContent.office.name,
     title: siteContent.seo.default.title,
     description: siteContent.seo.default.description,
