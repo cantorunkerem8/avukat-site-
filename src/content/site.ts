@@ -6,7 +6,7 @@ export const siteContent: SiteContent = {
         slogan: 'Hukukun Gücü, Tecrübenin Teminatıyla Geleceğinizi Güvence Altına Alıyoruz',
         description:
             '2023 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
-        address: 'Akros Residence, Kat 14, Daire 281, Esenyurt, İstanbul',
+        address: 'Barbaros Hayrettin Paşa Mahallesi, 1997. Sokak No:12, Phuket Life Plaza, Kat:9, Daire:74, Esenyurt / İSTANBUL',
         phone: '+90 537 784 88 34',
         email: 'av.ali@bozoglanhukuk.com.tr',
         workingHours: {
@@ -15,7 +15,7 @@ export const siteContent: SiteContent = {
             sunday: 'Kapalı',
         },
         mapEmbedUrl:
-            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5!2d28.6747!3d41.0255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAxJzMxLjgiTiAyOMKwNDAnMjguOSJF!5e0!3m2!1str!2str!4v1234567890',
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.349811533716!2d28.6411623!3d41.01760219999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f0f364e7f5f%3A0xe8e2b96b6e5a9590!2sPhuket%20Life%20Residence!5e0!3m2!1str!2str!4v1778004857624!5m2!1str!2str',
     },
 
     socialLinks: [

@@ -132,7 +132,7 @@ export default function AboutPage() {
                             Ofisimiz
                         </h2>
                         <p className="text-muted-foreground max-w-2xl mx-auto">
-                            Esenyurt, Akros Residence&apos;ta bulunan ofisimizden bir kesit.
+                            Esenyurt, Phuket Life Plaza&apos;da bulunan ofisimizden bir kesit.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
