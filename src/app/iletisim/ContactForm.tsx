@@ -198,7 +198,7 @@ export function ContactForm() {
         <Input
           label="Telefon"
           type="tel"
-          placeholder="+90 5XX XXX XX XX"
+          placeholder="0552 098 57 79"
           error={errors.phone?.message}
           {...register('phone')}
         />

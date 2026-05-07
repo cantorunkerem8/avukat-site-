@@ -7,7 +7,7 @@ export const siteContent: SiteContent = {
         description:
             '2023 yılından bu yana, hukuku sadece bir çözüm mekanizması değil, stratejik bir güç olarak kullanıyoruz. Müvekkillerimizin haklarını korurken, onları geleceğin risklerine karşı bugünden hazırlayan proaktif ve vizyoner bir hukuk anlayışıyla hizmet veriyoruz.',
         address: 'Barbaros Hayrettin Paşa Mahallesi, 1997. Sokak No:12, Phuket Life Plaza, Kat:9, Daire:74, Esenyurt / İSTANBUL',
-        phone: '+90 537 784 88 34',
+        phone: '+90 552 098 57 79',
         email: 'av.ali@bozoglanhukuk.com.tr',
         workingHours: {
             weekdays: '09:00 - 18:00',
@@ -219,7 +219,7 @@ Ticaret hukuku, icra ve iflas hukuku, yabancılar hukuku ve ceza hukuku başta o
             education: [],
             languages: ['Türkçe'],
             barInfo: 'İstanbul Barosu - Sicil No: 88962',
-            phone: '+90 537 784 88 34',
+            phone: '+90 552 098 57 79',
             imagePlaceholder: {
                 initials: 'AB',
                 bgColor: 'bg-gradient-to-br from-amber-600 to-amber-800',
